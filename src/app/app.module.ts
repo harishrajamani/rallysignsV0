@@ -1,3 +1,5 @@
+import { SignPickerComponent } from './sign-picker/sign-picker.component';
+import { MapMakerComponent } from './map-maker/map-maker.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -6,11 +8,13 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MapMakerComponent,
+    SignPickerComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

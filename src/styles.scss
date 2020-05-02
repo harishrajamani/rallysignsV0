@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.map-maker {
+    map-area {
+        min-width: 100px;
+        display: flex;
+        float: left;
+    }
+}
+.sign-picker {
+    max-width: 300px;
+    display: flex;
+    float: right;
+}

@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "name": "Start",
+      "constraints": {
+        "org": "AKC",
+        "beginner": true,
+        "intermediate": true,
+        "advanced": true
+      },
+      "description": "Indicates the beginning of the course. The dog does not have to be sitting at start.",
+      "image": {
+        "large": "/images/1-large.jpg",
+        "small": "/images/1-large.jpg"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Finish",
+      "constraints": {
+        "org": "AKC",
+        "beginner": true,
+        "intermediate": true,
+        "advanced": true
+      },
+      "description": "Indicates the end of the course - timing stops.",
+      "image": {
+        "large": "/images/2-large.jpg",
+        "small": "/images/2-large.jpg"
+      }
+    },
+  ]
