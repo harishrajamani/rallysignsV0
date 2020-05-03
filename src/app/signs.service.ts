@@ -23,12 +23,12 @@ export class SignsService {
     //})
     return this.http.get('/assets/signs.json').pipe(map(data => {
       //delete data[0];
-      console.log(JSON.stringify(data));
       console.log(Object.getOwnPropertyNames(data));
       console.log("Data: "+ data[0].id + " " + data[1].id);
       console.log("More data: " + Object.getOwnPropertyNames(data[0]));
       console.log("Total: " + data['length']);
-      //delete data[0];
+      console.log(JSON.stringify(data));
+      delete data[1];
       return data;
     }), catchError(error => {
       return throwError('Something went wrong!');
