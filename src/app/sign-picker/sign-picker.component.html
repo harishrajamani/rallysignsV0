@@ -1,9 +1,8 @@
 <div class="sign-picker">
     <form [formGroup]='searchForm'>
+        <label for="query">Search: </label>
         <input id="query" type="text" formControlName="query">
     </form>
-
-    <p>Query: {{ searchForm.query }}</p>
 
     <div class="sign-item" *ngFor="let sign of signs | async">
         <div *ngIf="sign">

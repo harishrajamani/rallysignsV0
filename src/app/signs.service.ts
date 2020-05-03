@@ -16,20 +16,10 @@ export class SignsService {
   }
 
   searchSigns(query) {
-    //this.signs = this.http.get('/assets/signs.json').subscribe(data => {
-    //  console.log("Query: " + query + " Data: " + data[0].id);
-    //  delete data[0];
-    //  this.signs = data;
-    //})
     return this.http.get('/assets/signs.json').pipe(map(data => {
-      //delete data[0];
-      console.log(Object.getOwnPropertyNames(data));
-      console.log("Data: "+ data[0].id + " " + data[1].id);
-      console.log("More data: " + Object.getOwnPropertyNames(data[0]));
-      console.log("Total: " + data['length']);
       console.log(JSON.stringify(data));
       for (const x in data) {
-        if (!JSON.stringify(data[x]).includes(query)) {
+        if (!JSON.stringify(data[x]).toLowerCase().includes(query.toLowerCase())) {
           delete data[x];
         }
       }
