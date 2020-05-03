@@ -28,7 +28,11 @@ export class SignsService {
       console.log("More data: " + Object.getOwnPropertyNames(data[0]));
       console.log("Total: " + data['length']);
       console.log(JSON.stringify(data));
-      delete data[1];
+      for (const x in data) {
+        if (!JSON.stringify(data[x]).includes(query)) {
+          delete data[x];
+        }
+      }
       return data;
     }), catchError(error => {
       return throwError('Something went wrong!');
