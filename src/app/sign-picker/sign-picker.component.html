@@ -1,1 +1,24 @@
-<div class="sign-picker"> Hello SignPickerComponent! </div>
+<div class="sign-picker">
+    <form [formGroup]='searchForm'>
+        <input id="query" type="text" formControlName="query">
+    </form>
+
+    <p>Query: {{ searchForm.query }}</p>
+
+    <div class="sign-item" *ngFor="let sign of signs | async">
+        <p align="center" class="sign-id">
+            <strong>#{{ sign.id }}</strong>
+        </p>
+        <span class="sign-img">
+            <img [src]="sign.image.large" [width]="200" [alt]="'Sign ' + sign.id + ' image'">
+        </span>
+        <span class="sign-constraints">
+            <p>CAN APPEAR IN:
+                <span [style.visibility]="sign.constraints.beginner ? 'visible': 'hidden'"> <strong> RN </strong> </span>
+                <span [style.visibility]="sign.constraints.intermediate ? 'visible': 'hidden'"> <strong> RI </strong> </span>
+                <span [style.visibility]="sign.constraints.advanced ? 'visible': 'hidden'"> <strong> RA </strong> </span>
+            </p>
+        </span>
+        <br>
+    </div>
+</div>
