@@ -17,26 +17,22 @@
 
             </div>
 
-            <div align="center" class="card-img-top">
+            <div align="center" class="card-img-top" style="margin-bottom: 7px;">
                 <img [src]="sign.image.large" [width]="200" [alt]="'Sign ' + sign.id + ' image'">
             </div>
-            <p class="card-text">{{ sign.description }}</p>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <div class="card-text">
-                        <p>CAN APPEAR IN:
-                            <span [style.visibility]="sign.constraints.beginner ? 'visible': 'hidden'"> <strong> RN
-                                </strong>
-                            </span>
-                            <span [style.visibility]="sign.constraints.intermediate ? 'visible': 'hidden'"> <strong> RI
-                                </strong> </span>
-                            <span [style.visibility]="sign.constraints.advanced ? 'visible': 'hidden'"> <strong> RA
-                                </strong>
-                            </span>
-                        </p>
-                    </div>
-                </li>
-            </ul>
+            <div class="card-text">{{ sign.description }}</div>
+            <div class="card-footer text-muted">
+                <p>CAN APPEAR IN:
+                    <span [style.visibility]="sign.constraints.beginner ? 'visible': 'hidden'"> <strong> RN
+                        </strong>
+                    </span>
+                    <span [style.visibility]="sign.constraints.intermediate ? 'visible': 'hidden'"> <strong> RI
+                        </strong> </span>
+                    <span [style.visibility]="sign.constraints.advanced ? 'visible': 'hidden'"> <strong> RA
+                        </strong>
+                    </span>
+                </p>
+            </div>
             <br>
         </div>
     </div>
