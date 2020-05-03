@@ -4,8 +4,8 @@
         <input id="query" type="text" formControlName="query">
     </form>
 
-    <div class="sign-item" *ngFor="let sign of signs | async">
-        <div *ngIf="sign">
+    <div *ngFor="let sign of signs">
+        <div class="card" *ngIf="sign">
             <p align="center" class="sign-id">
                 <strong>#{{ sign.id }}</strong>
             </p>
