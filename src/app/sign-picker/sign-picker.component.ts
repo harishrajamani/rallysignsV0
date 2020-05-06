@@ -1,3 +1,4 @@
+import { MapService, Sign } from './../map.service';
 import { SignService } from './../sign.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
@@ -15,7 +16,8 @@ export class SignPickerComponent implements OnInit {
 
 	constructor(
 		private formBuilder: FormBuilder,
-		private signService: SignService
+		private signService: SignService,
+		private mapService: MapService
 	) {
 		signService.signsUpdated$.subscribe(data => {
 			this.signs = data;
@@ -34,5 +36,12 @@ export class SignPickerComponent implements OnInit {
 			this.query = value;
 			this.signService.updateSigns(value);
 		});
+	}
+
+	onAddClick(signObj) {
+		console.log("onAddClick(): " + JSON.stringify(signObj));
+		let sign = new Sign;
+		sign.signObj = signObj; //this.signs[id];
+		this.mapService.addSign(sign);
 	}
 }

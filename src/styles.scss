@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-.map-maker {
-    map-area {
-        min-width: 100px;
-        display: flex;
-        float: left;
-    }
+
+.app-map-area {
+    margin-left: 100px;
+    min-width: 100px;
+    display: flex;
+    float: left;
 }
+
 .sign-picker {
     margin: 10px;
     max-width: 400px;
@@ -15,4 +16,8 @@
 
 .sign-add-btn {
     float: right;
+}
+
+.map-area-canvas {
+    margin-left: 20px;
 }

@@ -1,5 +1,5 @@
 <div class="sign-picker">
-    <h4 align="center">Add new sign</h4>
+    <h4 align="center">add new sign</h4>
     <form [formGroup]='searchForm'>
         <label for="query"><strong>Filter&nbsp;</strong> </label>
         <input id="query" type="text" formControlName="query">
@@ -12,9 +12,8 @@
                     #{{ sign.id }} <strong>{{sign.name }}</strong>
                 </span>
                 <span class="sign-add-btn">
-                    <button class="btn btn-primary" style="font-size:smaller;">Add</button>
+                    <button (click)="onAddClick(sign)" class="btn btn-primary" style="font-size:smaller;">Add</button>
                 </span>
-
             </div>
 
             <div align="center" class="card-img-top" style="margin-bottom: 7px;">
