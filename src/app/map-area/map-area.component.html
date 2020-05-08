@@ -1,8 +1,8 @@
 <canvas #myCanvas (click)="onCanvasClick($event)" class="map-area-canvas" width="800" height="800" style="border-style: solid;position:absolute;left:10;top:10"></canvas>
 
 <div #myActionGroup class="btn-group" role="group" aria-label="Basic example">
-    <button [hidden]="addButtonHidden()" type="button" class="btn btn-secondary">Add</button>
-    <button [hidden]="editButtonHidden()" type="button" class="btn btn-secondary">Edit</button>
-    <button [hidden]="deleteButtonHidden()" type="button" class="btn btn-secondary">Delete</button>
+    <button (click)="onAddButtonClick()" [hidden]="addButtonHidden()" type="button" class="btn btn-secondary">Add</button>
+    <button (click)="onEditButtonClick()" [hidden]="editButtonHidden()" type="button" class="btn btn-secondary">Edit</button>
+    <button (click)="onDeleteButtonClick()" [hidden]="deleteButtonHidden()" type="button" class="btn btn-secondary">Delete</button>
   </div>
 

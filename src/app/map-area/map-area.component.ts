@@ -1,6 +1,7 @@
 import { SignService } from './../sign.service';
-import { MapService, MapRequest, Sign, MapAction } from './../map.service';
+import { MapService, MapRequest, Sign, MapAction, MapLocation } from './../map.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ActivationStart } from '@angular/router';
 
 @Component({
   selector: 'app-map-area',
@@ -20,8 +21,6 @@ export class MapAreaComponent implements OnInit {
 
   actionButtonHidden: Map<MapAction, boolean> = new Map;
 
-
-
   constructor(
     private mapService: MapService,
     private signService: SignService) {
@@ -31,17 +30,13 @@ export class MapAreaComponent implements OnInit {
       let mapRequest = data as MapRequest;
       console.log("New update in map-area: " + JSON.stringify(mapRequest));
       this.drawSign(mapRequest.newSign, mapRequest.loc.x, mapRequest.loc.y);
-      //mapRequest.newSign.draw(this.ctx, mapRequest.loc.x, mapRequest.loc.y);
     });
   }
 
   // TODO(harishr): ngAfterViewInit?
   ngOnInit(): void {
     this.ctx = this.myCanvas.nativeElement.getContext('2d');
-    this.actionButtonHidden.set(MapAction.Add, true);
-    this.actionButtonHidden.set(MapAction.Edit, true);
-    this.actionButtonHidden.set(MapAction.Delete, true);
-    console.log("this.ActionButtonHidden: ", this.actionButtonHidden);
+    this.hideActionButtonGroup();
   }
 
   onCanvasClick(event) {
@@ -51,15 +46,34 @@ export class MapAreaComponent implements OnInit {
     var offsetY = event.offsetY;
     console.log("onCanvasClick: " + x + "," + y + "," + offsetX + "," + offsetY);
 
-    this.displayActionButtonGroup(event.x, event.y, [ MapAction.Add ]);
+    // TODO(harishr): might need to change this to x, y instead of offsetX, offsetY
+    // when using divs.
+    this.mapService.registerClick({ x: offsetX, y: offsetY });
+    this.displayActionButtonGroup(x, y, [ MapAction.Add ]);
+  }
 
+  onAddButtonClick() {
+    // Register the Add action into the MapService's request state.
+    // The cascading actions (e.g requesting SignPicker, adding the new Sign) will be handled by MapService.
+    this.mapService.registerAction(MapAction.Add);
+    // The button group's job is done.
+    this.hideActionButtonGroup();
+  }
 
+  onEditButtonClick() {
+    // Register the Edit action into the MapService's request state.
+    // The cascading actions (e.g requesting SignPicker, replacing current with new Sign) will be handled by MapService.
+    this.mapService.registerAction(MapAction.Edit);
+    // The button group's job is done.
+    this.hideActionButtonGroup();
+  }
 
-    this.mapService.registerAction(MapAction.Add, offsetX, offsetY);
-
-    // Enable signpicker
-    // TODO(harishr): When a second state is added for picking action on canvas, move this there.
-    this.mapService.publishEmptyMapAreaClick(offsetX, offsetY);
+  onDeleteButtonClick() {
+    // Register the Delete action into the MapService's request state.
+    // The cascading actions (deleting the current Sign) will be handled by MapService.
+    this.mapService.registerAction(MapAction.Delete);
+    // The button group's job is done.
+    this.hideActionButtonGroup();
   }
 
   displayActionButtonGroup(x: number, y: number, actions: MapAction[]) {
@@ -70,6 +84,12 @@ export class MapAreaComponent implements OnInit {
     this.myActionGroup.nativeElement.style.position = "absolute";
     this.myActionGroup.nativeElement.style.left = x + 'px';
     this.myActionGroup.nativeElement.style.top = y + 'px';
+  }
+
+  hideActionButtonGroup() {
+    this.actionButtonHidden.set(MapAction.Add, true);
+    this.actionButtonHidden.set(MapAction.Edit, true);
+    this.actionButtonHidden.set(MapAction.Delete, true);
   }
 
   drawSign(sign: Sign, x: number, y: number) {

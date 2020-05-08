@@ -13,7 +13,7 @@ export class Sign {
 }
 
 // A map can be clicked at a granular point or on a sign.
-class MapLocation {
+export class MapLocation {
   x: number;
   y: number;
 };
@@ -79,31 +79,53 @@ export class MapService {
 
   // This is observed by SignPicker to unhide itself.
   // TODO(harishrajamani): Also use this to trigger advanced options for action selection on canvas.
-  private emptyMapAreaClickedSource = new Subject<MapLocation>();
-  emptyMapAreaClicked$ = this.emptyMapAreaClickedSource.asObservable();
+  private signPickerRequestedSource = new Subject<boolean>();
+  signPickerRequested$ = this.signPickerRequestedSource.asObservable();
 
-  publishEmptyMapAreaClick(x:number, y:number) {
-    let newLoc = new MapLocation();
-    newLoc.x = x;
-    newLoc.y = y;
-    this.emptyMapAreaClickedSource.next(newLoc);
+  publishSignPickerRequest() {
+    this.signPickerRequestedSource.next(true);
   }
 
-  registerAction(mapAction: MapAction, x: number, y: number) {
-    console.log("registerAction");
+  // The first instance of a request begins with a clicked location.
+  registerClick(mapLocation: MapLocation) {
     this.request = new MapRequest;
-    this.request.action = mapAction;
-    this.request.loc = new MapLocation;
-    this.request.loc.x = x;
-    this.request.loc.y = y;
-    console.log("registerAction: " + JSON.stringify(this.request));
-    // TODO(harishr): deal with old sign here.
+    this.request.loc = mapLocation;
+
+  }
+
+  // At some point after first click, the user picks the Action at that sign/location.
+  // This method registers the new Action into the existing request state, and
+  // (a) in the case of Add/Edit, kicks off a request for the SignPicker component
+  // (b) in the case of Delete, proceeds with deletion.
+  registerAction(mapAction: MapAction) {
+    console.log("registerAction");
+    try {
+      this.request.action = mapAction;
+      console.log("registerAction: " + JSON.stringify(this.request));
+    } catch (error) {
+      console.error("registerAction called before registerClick!");
+    }
+    // Deal with action
+    switch(mapAction) {
+      case MapAction.Add:
+        // Publish sign picker request
+        this.signPickerRequestedSource.next(true);
+        break;
+      case MapAction.Edit:
+        // Publish sign picker request. Edit will have more steps
+        // after SignPicker delegates control back.
+        this.signPickerRequestedSource.next(true);
+        break;
+      case MapAction.Delete:
+        // TODO(harishr): Delete sign
+        break;
+    }
   }
 
   // This call is made by SignPicker after a sign has been picked.
   // This can happen in an Add/Edit scenario
-  addSign(newSign: Sign) {
-    console.log("MapService.addSign");
+  addPickedSign(newSign: Sign) {
+    console.log("MapService.addPickedSign");
     //if (!this.request.isValid()) {
     //  throw new Error("Invalid MapRequest: " + JSON.stringify(this.request));
     //}
@@ -123,7 +145,4 @@ export class MapService {
     // Clear MapRequest
     delete(this.request);
   }
-
-  // This call is made by MapArea after a delete action is initiated on a sign. 
-  //deleteSign()
 }

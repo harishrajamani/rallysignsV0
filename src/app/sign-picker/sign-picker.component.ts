@@ -22,10 +22,10 @@ export class SignPickerComponent implements OnInit {
 		private signService: SignService,
 		private mapService: MapService
 	) {
-		mapService.emptyMapAreaClicked$.subscribe(data => {
-			// We don't need the data (MapLocation) itself. Just use this to make ourselves visible.
-			console.log("SignPicker: EmptyMapAreaclicked");
-			this.hidden = false;
+		mapService.signPickerRequested$.subscribe(data => {
+			// data should be "true"
+			console.log("SignPicker: signPickerRequested");
+			this.hidden = !(data as boolean);
 		})
 		signService.signsUpdated$.subscribe(data => {
 			this.signs = data;
@@ -58,7 +58,7 @@ export class SignPickerComponent implements OnInit {
 		console.log("onAddClick(): " + JSON.stringify(signObj));
 		let sign = new Sign;
 		sign.signObj = signObj; //this.signs[id];
-		this.mapService.addSign(sign);
+		this.mapService.addPickedSign(sign);
 
 		// We can now hide the signpicker
 		this.hidden = true;
