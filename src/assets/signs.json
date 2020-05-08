@@ -11,7 +11,7 @@
     "description": "Indicates the beginning of the course. The dog does not have to be sitting at start.",
     "image": {
       "large": "/assets/images/1_large.png",
-      "small": "/assets/images/1_large.png"
+      "small": "/assets/images/1_small.png"
     }
   },
   {
@@ -26,7 +26,7 @@
     "description": "Indicates the end of the course - timing stops.",
     "image": {
       "large": "/assets/images/2_large.png",
-      "small": "/assets/images/2_large.png"
+      "small": "/assets/images/2_small.png"
     }
   }
 ]

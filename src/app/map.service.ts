@@ -73,10 +73,21 @@ export class MapService {
     this.mapSigns = [];
   }
 
-  private mapUpdatedSource = new Subject<MapRequest>();
-
   // This is observed by MapAreaComponent to refresh the map.
+  private mapUpdatedSource = new Subject<MapRequest>();
   mapUpdated$ = this.mapUpdatedSource.asObservable();
+
+  // This is observed by SignPicker to unhide itself.
+  // TODO(harishrajamani): Also use this to trigger advanced options for action selection on canvas.
+  private emptyMapAreaClickedSource = new Subject<MapLocation>();
+  emptyMapAreaClicked$ = this.emptyMapAreaClickedSource.asObservable();
+
+  publishEmptyMapAreaClick(x:number, y:number) {
+    let newLoc = new MapLocation();
+    newLoc.x = x;
+    newLoc.y = y;
+    this.emptyMapAreaClickedSource.next(newLoc);
+  }
 
   registerAction(mapAction: MapAction, x: number, y: number) {
     console.log("registerAction");
