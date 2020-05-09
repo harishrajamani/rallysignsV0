@@ -1,5 +1,5 @@
-import { MapRequest, Sign } from './../map.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Sign } from './../map.service';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChildren, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-map-sign',
@@ -8,8 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MapSignComponent implements OnInit {
 
-  @Input() mapRequest: MapRequest;
   @Input() sign: Sign;
+
+  @Output() clickedSign = new EventEmitter<Sign>();
+
+  @ViewChild('mySignDiv', {static: true})
+  mySignDiv: ElementRef<HTMLDivElement>;
 
   constructor() { }
 
@@ -36,4 +40,12 @@ export class MapSignComponent implements OnInit {
     return this.sign.signObj["image"]["small"];
   }
 
+  getWidth() {
+    return
+  }
+
+  onClick() {
+    console.log("Sign clicked: " + JSON.stringify(this.sign));
+    this.clickedSign.emit(this.sign);
+  }
 }

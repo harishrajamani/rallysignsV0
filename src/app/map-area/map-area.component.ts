@@ -1,7 +1,8 @@
 import { SignService } from './../sign.service';
 import { MapService, MapRequest, Sign, MapAction, MapLocation } from './../map.service';
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { ActivationStart } from '@angular/router';
+import { MapSignComponent } from '../map-sign/map-sign.component';
 
 @Component({
   selector: 'app-map-area',
@@ -17,9 +18,13 @@ export class MapAreaComponent implements OnInit {
 
   private ctx: CanvasRenderingContext2D;
 
-  // ContextMenu for selecting Add, Edit or Delete action on a map location (coordinates or sign div).
+  // ButtonGroup menu for selecting Add, Edit or Delete action on a map location (coordinates or sign div).
   @ViewChild('myActionGroup', { static: true })
   myActionGroup: ElementRef<HTMLDivElement>;
+
+  // View of template children of type MapSignComponent.
+  @ViewChildren('myMapSigns')
+  myMapSigns: QueryList<MapSignComponent>;
 
   // Whether or not a given Action button (e.g Add) in the Action group should be hidden.
   actionButtonHidden: Map<MapAction, boolean> = new Map;
@@ -60,7 +65,7 @@ export class MapAreaComponent implements OnInit {
 
     // Register click event with MapService.
     this.mapService.registerClick({ x: pageX, y: pageY });
-    this.displayActionButtonGroup(pageX, pageY, [ MapAction.Add ]);
+    this.displayActionButtonGroup(pageX, pageY, [MapAction.Add]);
   }
 
   // What to do when a coordinate location and an Add action have been registered from the user.
@@ -88,6 +93,29 @@ export class MapAreaComponent implements OnInit {
     this.mapService.registerAction(MapAction.Delete);
     // The button group's job is done.
     this.hideActionButtonGroup();
+  }
+
+  getMapSignWidth() {
+    if (this.myMapSigns.length == 0) {
+      console.log('this.myMapSigns' + JSON.stringify(this.myMapSigns));
+      return null;
+    }
+    return this.myMapSigns.first.mySignDiv.nativeElement.offsetWidth;
+  }
+
+  getMapSignHeight() {
+    if (this.myMapSigns.length == 0) {
+      return null;
+    }
+    return this.myMapSigns.first.mySignDiv.nativeElement.offsetHeight;
+  }
+
+  onSignClick(event) {
+    let sign = (event as Sign);
+    console.log(`onSignClick: ${sign.loc.x}, ${sign.loc.y}, ${this.getMapSignWidth()}, ${this.getMapSignHeight()}`);
+    // Register click event with MapService.
+    this.mapService.registerClick({ x: sign.loc.x, y: sign.loc.y }, sign);
+    this.displayActionButtonGroup(sign.loc.x + this.getMapSignWidth(), sign.loc.y + this.getMapSignHeight(), [MapAction.Edit, MapAction.Delete]);
   }
 
   // Method for displaying (i.e unhiding) a subset of enabled actions on myActionGroup at a given position.

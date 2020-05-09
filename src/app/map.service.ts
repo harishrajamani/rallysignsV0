@@ -96,10 +96,14 @@ export class MapService {
   }
 
   // The first instance of a request begins with a clicked location.
-  registerClick(mapLocation: MapLocation) {
+  registerClick(mapLocation: MapLocation, sign?: Sign) {
     this.request = new MapRequest;
     this.request.loc = mapLocation;
-
+    // If the click was on a sign, then record that into the request state as oldSign.
+    // This implies the action performed will be an Edit or a Delete on the oldSign.
+    if (sign) {
+      this.request.oldSign = sign;
+    }
   }
 
   // At some point after first click, the user picks the Action at that sign/location.
@@ -127,6 +131,7 @@ export class MapService {
         break;
       case MapAction.Delete:
         // TODO(harishr): Delete sign
+        this.mapSigns.splice(this.request.oldSign.mapIndex, 1);
         break;
     }
   }

@@ -6,4 +6,6 @@
     <button (click)="onDeleteButtonClick()" [hidden]="deleteButtonHidden()" type="button" class="btn btn-secondary">Delete</button>
 </div>
 
-<app-map-sign *ngFor="let sign of signs" [sign]="sign"></app-map-sign>
+<app-map-sign #myMapSigns *ngFor="let sign of signs"
+[sign]="sign"
+(clickedSign)="onSignClick($event)"></app-map-sign>
