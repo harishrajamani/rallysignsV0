@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MapAreaComponent } from './map-area/map-area.component';
+import { MapSignComponent } from './map-sign/map-sign.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MapAreaComponent } from './map-area/map-area.component';
     MapMakerComponent,
     SignPickerComponent,
     MapAreaComponent,
+    MapSignComponent,
   ],
   imports: [
     BrowserModule,

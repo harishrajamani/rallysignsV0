@@ -24,6 +24,9 @@ export class MapAreaComponent implements OnInit {
   // Whether or not a given Action button (e.g Add) in the Action group should be hidden.
   actionButtonHidden: Map<MapAction, boolean> = new Map;
 
+  // Map sign
+  mapRequest: MapRequest;
+
   constructor(
     private mapService: MapService,
     private signService: SignService) {
@@ -32,7 +35,10 @@ export class MapAreaComponent implements OnInit {
       // TODO(harishr): If oldsign exists then clear.
       let mapRequest = data as MapRequest;
       console.log("New update in map-area: " + JSON.stringify(mapRequest));
-      this.drawSign(mapRequest.newSign, mapRequest.loc.x, mapRequest.loc.y);
+      //this.drawSign(mapRequest.newSign, mapRequest.loc.x, mapRequest.loc.y);
+
+      // Div based sign
+      this.mapRequest = mapRequest;
     });
   }
 
@@ -57,7 +63,7 @@ export class MapAreaComponent implements OnInit {
 
     // TODO(harishr): might need to change this to x, y instead of offsetX, offsetY
     // when using divs.
-    this.mapService.registerClick({ x: offsetX, y: offsetY });
+    this.mapService.registerClick({ x: pageX, y: pageY });
     this.displayActionButtonGroup(pageX, pageY, [ MapAction.Add ]);
   }
 

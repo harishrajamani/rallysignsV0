@@ -4,5 +4,6 @@
     <button (click)="onAddButtonClick()" [hidden]="addButtonHidden()" type="button" class="btn btn-secondary">Add</button>
     <button (click)="onEditButtonClick()" [hidden]="editButtonHidden()" type="button" class="btn btn-secondary">Edit</button>
     <button (click)="onDeleteButtonClick()" [hidden]="deleteButtonHidden()" type="button" class="btn btn-secondary">Delete</button>
-  </div>
+</div>
 
+<app-map-sign *ngIf="mapRequest" [mapRequest]="mapRequest" ></app-map-sign>
