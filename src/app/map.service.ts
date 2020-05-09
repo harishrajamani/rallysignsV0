@@ -19,11 +19,6 @@ export class MapLocation {
   x: number;
   y: number;
 };
-// interface MapLocationWithSign {
-//   // TODO(harishr): This doesn't solve the problem of how to pass in x, y for old sign.
-//   signId: number;
-// };
-//type MapLocation = MapLocationWithPoint; // | MapLocationWithSign;
 
 export enum MapAction {
   Add,  // Only makes sense at a point
@@ -42,23 +37,6 @@ export class MapRequest {
 
   // Only makes sense for Add or Edit actions
   newSign?: Sign;
-
-  isValid() {
-    // Location and action must exist
-    if (!this.loc || !this.action) {
-      return false;
-    }
-    // For newSign requests...
-    if (this.newSign) {
-      // Action cannot be Delete
-      if (this.action === MapAction.Delete) {
-        return false;
-      }
-      // TODO(harishrajamani): Add more validation rules
-      // E.g If location is Sign, Action cannot be Add
-    }
-    return true;
-  }
 }
 
 @Injectable({
@@ -74,11 +52,6 @@ export class MapService {
   constructor() {
     this.mapSigns = [];
   }
-
-  // TODO(harishr): Remove this.
-  // This was originally created to signal to MapAreaComponent to refresh signs but is no longer needed.
-  // private mapUpdatedSource = new Subject<MapRequest>();
-  // mapUpdated$ = this.mapUpdatedSource.asObservable();
 
   // This is observed by SignPicker to unhide itself.
   // TODO(harishrajamani): Also use this to trigger advanced options for action selection on canvas.
@@ -130,7 +103,6 @@ export class MapService {
         this.signPickerRequestedSource.next(true);
         break;
       case MapAction.Delete:
-        // TODO(harishr): Delete sign
         this.mapSigns.splice(this.request.oldSign.mapIndex, 1);
         break;
     }
@@ -141,10 +113,7 @@ export class MapService {
   // mapSigns list.
   addPickedSign(newSign: Sign) {
     console.log("MapService.addPickedSign");
-    //if (!this.request.isValid()) {
-    //  throw new Error("Invalid MapRequest: " + JSON.stringify(this.request));
-    //}
-
+  
     // Add sign to model (maybe replacing old sign)
     if (this.request.action === MapAction.Edit) {
       // Clobber the old sign by putting it in the same index.
@@ -163,9 +132,6 @@ export class MapService {
     // Update finalized MapRequest and log to console (just for debug).
     this.request.newSign = newSign;
     console.log("Finalized MapRequest: " + JSON.stringify(this.request));
-
-    // No need to update this stream anymore.
-    //this.mapUpdatedSource.next(this.request);
   
     // Clear MapRequest
     delete(this.request);
