@@ -1,6 +1,3 @@
-<div class="map-sign-div"
-    style="border-style: solid;position:absolute;left:{{ mapRequest.loc.x }}px;top:{{ mapRequest.loc.y }}px">
-    <img [src]="getImg()" style="width:100%">
+<div class="map-sign-div" [id]="getId()" [style.left.px]="getX()" [style.top.px]="getY()">
+    <img [src]="getImg()" [style.width.%]="100">
 </div>
-
-<!-- style="border-style: solid;position:absolute;left.px:$mapRequest.loc.x;top.px:$mapRequest.loc.y"> -->

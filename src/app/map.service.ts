@@ -9,7 +9,9 @@ export class Sign {
   // As derived from signs.json
   signObj: Object;
 
-  // TODO(harishrajamani): Fix this
+  // Coordinates on map
+  loc: MapLocation;
+  
 }
 
 // A map can be clicked at a granular point or on a sign.
@@ -73,15 +75,22 @@ export class MapService {
     this.mapSigns = [];
   }
 
-  // This is observed by MapAreaComponent to refresh the map.
-  private mapUpdatedSource = new Subject<MapRequest>();
-  mapUpdated$ = this.mapUpdatedSource.asObservable();
+  // TODO(harishr): Remove this.
+  // This was originally created to signal to MapAreaComponent to refresh signs but is no longer needed.
+  // private mapUpdatedSource = new Subject<MapRequest>();
+  // mapUpdated$ = this.mapUpdatedSource.asObservable();
 
   // This is observed by SignPicker to unhide itself.
   // TODO(harishrajamani): Also use this to trigger advanced options for action selection on canvas.
   private signPickerRequestedSource = new Subject<boolean>();
   signPickerRequested$ = this.signPickerRequestedSource.asObservable();
 
+  // Gets the consolidated state of the map (list of ordered Signs with map location).
+  getMapSigns() {
+    return this.mapSigns;
+  }
+
+  // This is used to signal to the SignPicker that it should unhide itself.
   publishSignPickerRequest() {
     this.signPickerRequestedSource.next(true);
   }
@@ -122,8 +131,9 @@ export class MapService {
     }
   }
 
-  // This call is made by SignPicker after a sign has been picked.
-  // This can happen in an Add/Edit scenario
+  // This call is made by SignPicker after a sign has been picked. This can only happen in an Add/Edit scenario.
+  // This method fills in all the remaining details for newSign (mapIndex, loc) and updates the state of the
+  // mapSigns list.
   addPickedSign(newSign: Sign) {
     console.log("MapService.addPickedSign");
     //if (!this.request.isValid()) {
@@ -132,15 +142,25 @@ export class MapService {
 
     // Add sign to model (maybe replacing old sign)
     if (this.request.action === MapAction.Edit) {
+      // Clobber the old sign by putting it in the same index.
       newSign.mapIndex = this.request.oldSign.mapIndex;
       this.mapSigns[newSign.mapIndex] = newSign;
+      // When a sign is clicked, the "clicked location" of the new sign should be
+      // the position of the old sign itself. 
+      newSign.loc = this.request.loc;
     } else {  // MapAction.Add
       newSign.mapIndex = this.mapSigns.length;
       this.mapSigns.push(newSign);
+      // When an empty canvas location is clicked, the raw coordinates of the click
+      // are used to position the new sign.
+      newSign.loc = this.request.loc;
     }
-    // Update MapRequest, and add to stream
+    // Update finalized MapRequest and log to console (just for debug).
     this.request.newSign = newSign;
-    this.mapUpdatedSource.next(this.request);
+    console.log("Finalized MapRequest: " + JSON.stringify(this.request));
+
+    // No need to update this stream anymore.
+    //this.mapUpdatedSource.next(this.request);
   
     // Clear MapRequest
     delete(this.request);

@@ -1,4 +1,4 @@
-import { MapRequest } from './../map.service';
+import { MapRequest, Sign } from './../map.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -9,14 +9,31 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MapSignComponent implements OnInit {
 
   @Input() mapRequest: MapRequest;
+  @Input() sign: Sign;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  // Returns the mapIndex of this sign.
+  getId() {
+    return this.sign.mapIndex;
+  }
+
+  // Returns the X-coordinate (style.left.px) for the sign div.
+  getX() {
+    return this.sign.loc.x;
+  }
+
+  // Returns the Y-coordinate (style.top.px) for the sign div.
+  getY() {
+    return this.sign.loc.y;
+  }
+
+  // Returns the image to be displayed in the sign div.
   getImg() {
-    return this.mapRequest.newSign.signObj["image"]["small"];
+    return this.sign.signObj["image"]["small"];
   }
 
 }

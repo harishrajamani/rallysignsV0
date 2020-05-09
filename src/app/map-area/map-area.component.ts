@@ -27,19 +27,14 @@ export class MapAreaComponent implements OnInit {
   // Map sign
   mapRequest: MapRequest;
 
+  // Map signs. This is only a reflected property of MapService.getMapSigns().
+  // Meaning, MapAreaComponent doesn't maintain map state, it always gets it fresh
+  // from MapService (during ngOnInit()).
+  signs: Sign[];
+
   constructor(
     private mapService: MapService,
     private signService: SignService) {
-    // MapArea seubscribes to the mapUpdated signal from MapService, so it can render the new sign.
-    mapService.mapUpdated$.subscribe(data => {
-      // TODO(harishr): If oldsign exists then clear.
-      let mapRequest = data as MapRequest;
-      console.log("New update in map-area: " + JSON.stringify(mapRequest));
-      //this.drawSign(mapRequest.newSign, mapRequest.loc.x, mapRequest.loc.y);
-
-      // Div based sign
-      this.mapRequest = mapRequest;
-    });
   }
 
   // TODO(harishr): ngAfterViewInit?
@@ -47,6 +42,8 @@ export class MapAreaComponent implements OnInit {
     this.ctx = this.myCanvas.nativeElement.getContext('2d');
     // Start without any Action menus.
     this.hideActionButtonGroup();
+    // Refresh state of all the map signs
+    this.signs = this.mapService.getMapSigns();
   }
 
   // When the canvas is clicked, we register a new map request at the clicked location.
@@ -61,8 +58,7 @@ export class MapAreaComponent implements OnInit {
     var pageY = event.pageY;
     console.log("onCanvasClick: " + x + "," + y + "," + offsetX + "," + offsetY + "," + pageX + "," + pageY);
 
-    // TODO(harishr): might need to change this to x, y instead of offsetX, offsetY
-    // when using divs.
+    // Register click event with MapService.
     this.mapService.registerClick({ x: pageX, y: pageY });
     this.displayActionButtonGroup(pageX, pageY, [ MapAction.Add ]);
   }
@@ -110,16 +106,6 @@ export class MapAreaComponent implements OnInit {
     this.actionButtonHidden.set(MapAction.Add, true);
     this.actionButtonHidden.set(MapAction.Edit, true);
     this.actionButtonHidden.set(MapAction.Delete, true);
-  }
-
-  // Draw a confirmed sign at a specific location on the canvas.
-  drawSign(sign: Sign, x: number, y: number) {
-    var img = new Image;
-    let ctx = this.ctx;
-    img.onload = function () {
-      ctx.drawImage(img, x, y, img.width * 0.25, img.height * 0.25); // Or at whatever offset you like
-    };
-    img.src = sign.signObj["image"]["small"];
   }
 
   // State of Add action button for template
