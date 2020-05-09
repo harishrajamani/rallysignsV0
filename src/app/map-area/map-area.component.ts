@@ -44,12 +44,14 @@ export class MapAreaComponent implements OnInit {
     var y = event.y;
     var offsetX = event.offsetX;
     var offsetY = event.offsetY;
-    console.log("onCanvasClick: " + x + "," + y + "," + offsetX + "," + offsetY);
+    var pageX = event.pageX;
+    var pageY = event.pageY;
+    console.log("onCanvasClick: " + x + "," + y + "," + offsetX + "," + offsetY + "," + pageX + "," + pageY);
 
     // TODO(harishr): might need to change this to x, y instead of offsetX, offsetY
     // when using divs.
     this.mapService.registerClick({ x: offsetX, y: offsetY });
-    this.displayActionButtonGroup(x, y, [ MapAction.Add ]);
+    this.displayActionButtonGroup(pageX, pageY, [ MapAction.Add ]);
   }
 
   onAddButtonClick() {
