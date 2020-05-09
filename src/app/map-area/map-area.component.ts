@@ -11,20 +11,23 @@ import { ActivationStart } from '@angular/router';
 export class MapAreaComponent implements OnInit {
   // TODO(harishr): @ViewChild('canvas', {static: false}) canvas: ElementRef;?
 
+  // A canvas for letting the user issue click actions.
   @ViewChild('myCanvas', { static: true })
   myCanvas: ElementRef<HTMLCanvasElement>;
 
+  private ctx: CanvasRenderingContext2D;
+
+  // ContextMenu for selecting Add, Edit or Delete action on a map location (coordinates or sign div).
   @ViewChild('myActionGroup', { static: true })
   myActionGroup: ElementRef<HTMLDivElement>;
 
-  private ctx: CanvasRenderingContext2D;
-
+  // Whether or not a given Action button (e.g Add) in the Action group should be hidden.
   actionButtonHidden: Map<MapAction, boolean> = new Map;
 
   constructor(
     private mapService: MapService,
     private signService: SignService) {
-
+    // MapArea seubscribes to the mapUpdated signal from MapService, so it can render the new sign.
     mapService.mapUpdated$.subscribe(data => {
       // TODO(harishr): If oldsign exists then clear.
       let mapRequest = data as MapRequest;
@@ -36,9 +39,13 @@ export class MapAreaComponent implements OnInit {
   // TODO(harishr): ngAfterViewInit?
   ngOnInit(): void {
     this.ctx = this.myCanvas.nativeElement.getContext('2d');
+    // Start without any Action menus.
     this.hideActionButtonGroup();
   }
 
+  // When the canvas is clicked, we register a new map request at the clicked location.
+  // This will prompt user interactions with myActionGroup that determine the action and potential sign updates
+  // to be incorporated.
   onCanvasClick(event) {
     var x = event.x;
     var y = event.y;
@@ -54,6 +61,7 @@ export class MapAreaComponent implements OnInit {
     this.displayActionButtonGroup(pageX, pageY, [ MapAction.Add ]);
   }
 
+  // What to do when a coordinate location and an Add action have been registered from the user.
   onAddButtonClick() {
     // Register the Add action into the MapService's request state.
     // The cascading actions (e.g requesting SignPicker, adding the new Sign) will be handled by MapService.
@@ -62,6 +70,7 @@ export class MapAreaComponent implements OnInit {
     this.hideActionButtonGroup();
   }
 
+  // What to do when a sign location and an Edit action have been registered from the user.
   onEditButtonClick() {
     // Register the Edit action into the MapService's request state.
     // The cascading actions (e.g requesting SignPicker, replacing current with new Sign) will be handled by MapService.
@@ -70,6 +79,7 @@ export class MapAreaComponent implements OnInit {
     this.hideActionButtonGroup();
   }
 
+  // What to do when a sign location and a Delete action have been registered from the user.
   onDeleteButtonClick() {
     // Register the Delete action into the MapService's request state.
     // The cascading actions (deleting the current Sign) will be handled by MapService.
@@ -78,6 +88,7 @@ export class MapAreaComponent implements OnInit {
     this.hideActionButtonGroup();
   }
 
+  // Method for displaying (i.e unhiding) a subset of enabled actions on myActionGroup at a given position.
   displayActionButtonGroup(x: number, y: number, actions: MapAction[]) {
     actions.forEach(action => {
       this.actionButtonHidden.set(action, false);
@@ -88,12 +99,14 @@ export class MapAreaComponent implements OnInit {
     this.myActionGroup.nativeElement.style.top = y + 'px';
   }
 
+  // Method for hiding the entire myActionGroup.
   hideActionButtonGroup() {
     this.actionButtonHidden.set(MapAction.Add, true);
     this.actionButtonHidden.set(MapAction.Edit, true);
     this.actionButtonHidden.set(MapAction.Delete, true);
   }
 
+  // Draw a confirmed sign at a specific location on the canvas.
   drawSign(sign: Sign, x: number, y: number) {
     var img = new Image;
     let ctx = this.ctx;
@@ -103,14 +116,17 @@ export class MapAreaComponent implements OnInit {
     img.src = sign.signObj["image"]["small"];
   }
 
+  // State of Add action button for template
   addButtonHidden() {
     return this.actionButtonHidden.get(MapAction.Add);
   }
 
+  // State of Edit action button for template
   editButtonHidden() {
     return this.actionButtonHidden.get(MapAction.Edit);
   }
 
+  // State of Delete action button for template
   deleteButtonHidden() {
     return this.actionButtonHidden.get(MapAction.Delete);
   }
