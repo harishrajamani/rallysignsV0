@@ -1,16 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
-.app-map-area {
-    margin-left: 100px;
-    min-width: 100px;
+.container {
     display: flex;
+}
+
+.app-map-area {
+    display: inline-flex;
     float: left;
 }
 
 .sign-picker {
     margin: 10px;
     max-width: 400px;
-    display: block;
+    display: inline-flex;
     float: right;
 }
 
@@ -25,6 +27,8 @@
 
 .map-sign-div {
     width: 100px;
-    border-style: solid;
+    border-style: dotted;
+    border-width: 1px;
+    border-color: lightgray;
     position: absolute;
 }
