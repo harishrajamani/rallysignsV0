@@ -1,8 +1,8 @@
-<h3 style="text-align: center;">Map Table</h3>
+<h3 style="text-align: center;">Map Table ({{ signs.length }} signs)</h3>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th scope="col">Position</th>
+            <th scope="col">Station#</th>
             <th scope="col">Sign#</th>
             <th scope="col">Name</th>
             <th scope="col">Image</th>
@@ -10,7 +10,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let sign of signs">
-            <th scope="row">{{ sign.mapIndex }}</th>
+            <th scope="row">{{ sign.mapIndex + 1}}</th>
             <td> {{ sign.signObj["id"] }} </td>
             <td> {{ sign.signObj["name"] }} </td>
             <td class="table-sign-td">
