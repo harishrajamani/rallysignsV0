@@ -69,7 +69,7 @@ export class MapService {
   }
 
   // The first instance of a request begins with a clicked location.
-  registerClick(mapLocation: MapLocation, sign?: Sign) {
+  registerClick(mapLocation: MapLocation, sign?: Sign) {    
     this.request = new MapRequest;
     this.request.loc = mapLocation;
     // If the click was on a sign, then record that into the request state as oldSign.

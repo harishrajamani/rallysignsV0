@@ -118,6 +118,9 @@ export class MapAreaComponent implements OnInit {
 
   // Method for displaying (i.e unhiding) a subset of enabled actions on myActionGroup at a given position.
   displayActionButtonGroup(x: number, y: number, actions: MapAction[]) {
+    // First clear all currently enabled actions. Otherwise multiple clicks can stack up state changes unpredictably.
+    this.hideActionButtonGroup();
+
     actions.forEach(action => {
       this.actionButtonHidden.set(action, false);
     });
