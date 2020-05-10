@@ -49,6 +49,7 @@ export class SignPickerComponent implements OnInit {
 	}
 
 	isHidden() {
+		console.log("isHidden?" + this.hidden);
 		return this.hidden;
 	}
 

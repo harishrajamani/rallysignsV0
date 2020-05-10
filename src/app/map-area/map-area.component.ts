@@ -1,7 +1,7 @@
 import { SignService } from './../sign.service';
 import { MapService, MapRequest, Sign, MapAction, MapLocation } from './../map.service';
 import { Component, OnInit, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
-import { ActivationStart } from '@angular/router';
+import { ActivationStart, Router } from '@angular/router';
 import { MapSignComponent } from '../map-sign/map-sign.component';
 
 @Component({
@@ -37,7 +37,8 @@ export class MapAreaComponent implements OnInit {
 
   constructor(
     private mapService: MapService,
-    private signService: SignService) {
+    private signService: SignService,
+    private router: Router) {
   }
 
   // TODO(harishr): ngAfterViewInit?
@@ -73,6 +74,9 @@ export class MapAreaComponent implements OnInit {
     this.mapService.registerAction(MapAction.Add);
     // The button group's job is done.
     this.hideActionButtonGroup();
+
+    // TODO(als83): Add a router link here
+    this.router.navigateByUrl('/signpicker');
   }
 
   // What to do when a sign location and an Edit action have been registered from the user.
