@@ -10,8 +10,6 @@ import { MapSignComponent } from '../map-sign/map-sign.component';
   styleUrls: ['./map-area.component.scss']
 })
 export class MapAreaComponent implements OnInit {
-  // TODO(harishr): @ViewChild('canvas', {static: false}) canvas: ElementRef;?
-
   // A canvas for letting the user issue click actions.
   @ViewChild('myCanvas', { static: true })
   myCanvas: ElementRef<HTMLCanvasElement>;

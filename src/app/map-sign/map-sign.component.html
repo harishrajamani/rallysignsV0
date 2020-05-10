@@ -1,7 +1,8 @@
 <div #mySignDiv (click)="onClick()" class="map-sign-div"
     [id]="getId()"
+    [style.position]="useMapLocation? 'absolute': 'unset'"
+    [style.width.px]="useMapLocation? '100': '50'"
     [style.left.px]="useMapLocation? getX(): null"
     [style.top.px]="useMapLocation? getY(): null">
-    <img [src]="getImg()"
-         [style.width.%]="useMapLocation? '100': '50'">
+    <img [src]="getImg()" [style.width.%]="100">
 </div>
