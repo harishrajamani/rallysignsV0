@@ -84,7 +84,6 @@ export class MapService {
   // (a) in the case of Add/Edit, kicks off a request for the SignPicker component
   // (b) in the case of Delete, proceeds with deletion.
   registerAction(mapAction: MapAction) {
-    console.log("registerAction");
     try {
       this.request.action = mapAction;
       console.log("registerAction: " + JSON.stringify(this.request));
@@ -103,7 +102,14 @@ export class MapService {
         this.signPickerRequestedSource.next(true);
         break;
       case MapAction.Delete:
+        // Delete the sign from mapSigns.
         this.mapSigns.splice(this.request.oldSign.mapIndex, 1);
+
+        // We aren't done here. The stored mapIndexes in each Sign object are now out of whack.
+        // So edit the mapIndexes in mapSigns to reflect the new truth.
+        this.mapSigns.forEach(function(item, i) {
+          (item as Sign).mapIndex = i;
+        });
         break;
     }
   }

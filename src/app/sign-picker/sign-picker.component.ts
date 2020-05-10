@@ -24,7 +24,6 @@ export class SignPickerComponent implements OnInit {
 	) {
 		mapService.signPickerRequested$.subscribe(data => {
 			// data should be "true"
-			console.log("SignPicker: signPickerRequested");
 			this.hidden = !(data as boolean);
 		})
 		signService.signsUpdated$.subscribe(data => {
@@ -50,12 +49,10 @@ export class SignPickerComponent implements OnInit {
 	}
 
 	isHidden() {
-		console.log('IsHidden?' + this.hidden);
 		return this.hidden;
 	}
 
 	onAddClick(signObj) {
-		console.log("onAddClick(): " + JSON.stringify(signObj));
 		let sign = new Sign;
 		sign.signObj = signObj; //this.signs[id];
 		this.mapService.addPickedSign(sign);
