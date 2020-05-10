@@ -1,32 +1,1694 @@
-[
-  {
-    "id": 1,
-    "name": "Start",
-    "constraints": {
-      "org": "AKC",
-      "beginner": true,
-      "intermediate": true,
-      "advanced": true
-    },
-    "description": "Indicates the beginning of the course. The dog does not have to be sitting at start.",
-    "image": {
-      "large": "/assets/images/1_large.png",
-      "small": "/assets/images/1_small.png"
-    }
+[{
+  "id": 1,
+  "name": "START",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
   },
-  {
-    "id": 2,
-    "name": "Finish",
-    "constraints": {
-      "org": "AKC",
-      "beginner": true,
-      "intermediate": true,
-      "advanced": true
-    },
-    "description": "Indicates the end of the course - timing stops.",
-    "image": {
-      "large": "/assets/images/2_large.png",
-      "small": "/assets/images/2_small.png"
-    }
+  "description": "Indicates the beginning of the course. The dog does not have to be sitting at start",
+  "image": {
+    "large": "assets/images/large/sign_001.png",
+    "small": "assets/images/small/thumb_sign_001.png"
   }
+},{
+  "id": 2,
+  "name": "FINISH",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "Indicates the end of the course - timing stops.",
+  "image": {
+    "large": "assets/images/large/sign_002.png",
+    "small": "assets/images/small/thumb_sign_002.png"
+  }
+},{
+  "id": 3,
+  "name": "HALT - Sit",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits </u></b>in heel position. <b>(Stationary Exercise)</b>.",
+  "image": {
+    "large": "assets/images/large/sign_003.png",
+    "small": "assets/images/small/thumb_sign_003.png"
+  }
+},{
+  "id": 4,
+  "name": "HALT - Sit - Down",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, the <b><u>handler halts and the dog sits</u></b> in heel position<b>. <u>The dog must then down</u>, </b>in heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_004.png",
+    "small": "assets/images/small/thumb_sign_004.png"
+  }
+},{
+  "id": 5,
+  "name": "Right Turn",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "Performed as a <b><u>90° turn to the right</u></b>, as in traditional obedience.",
+  "image": {
+    "large": "assets/images/large/sign_005.png",
+    "small": "assets/images/small/thumb_sign_005.png"
+  }
+},{
+  "id": 6,
+  "name": "Left Turn",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "Performed as a <b><u>90° turn to the left</u></b>, as in traditional obedience.",
+  "image": {
+    "large": "assets/images/large/sign_006.png",
+    "small": "assets/images/small/thumb_sign_006.png"
+  }
+},{
+  "id": 7,
+  "name": "About Turn - Right",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, the team makes a <b><u>180° turn to the right.</u></b>",
+  "image": {
+    "large": "assets/images/large/sign_007.png",
+    "small": "assets/images/small/thumb_sign_007.png"
+  }
+},{
+  "id": 8,
+  "name": "About -U-Turn",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, the team makes a <b><u>180° turn to the left.</u></b>",
+  "image": {
+    "large": "assets/images/large/sign_008.png",
+    "small": "assets/images/small/thumb_sign_008.png"
+  }
+},{
+  "id": 9,
+  "name": "270° Right Turn",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling<b>, <u>the dog and handler make a</b> <b>tight 270° turn to the right</u>. </b>",
+  "image": {
+    "large": "assets/images/large/sign_009.png",
+    "small": "assets/images/small/thumb_sign_009.png"
+  }
+},{
+  "id": 10,
+  "name": "270° Left Turn",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the dog and handler make a tight 270° turn to the left</u>. </b>",
+  "image": {
+    "large": "assets/images/large/sign_010.png",
+    "small": "assets/images/small/thumb_sign_010.png"
+  }
+},{
+  "id": 11,
+  "name": "360° Right Turn",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the dog and handler make a tight 360° turn to the right.</u> </b>",
+  "image": {
+    "large": "assets/images/large/sign_011.png",
+    "small": "assets/images/small/thumb_sign_011.png"
+  }
+},{
+  "id": 12,
+  "name": "360° Left Turn",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the dog and handler make a tight 360° turn to the left</u>. </b>",
+  "image": {
+    "large": "assets/images/large/sign_012.png",
+    "small": "assets/images/small/thumb_sign_012.png"
+  }
+},{
+  "id": 13,
+  "name": "Call Dog Front - Finish Right - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops forward motion</u></b> and calls the dog to front. The handler may take several steps backward. <b><u>The dog must come and sit</u></b> in front.<b><u> Without the handler moving their feet, the dog must finish to the right</u></b>. As the dog clears the handlers path, the handler will heel forward before the dog returns to heel position. <b>(Stationary Exercise)</b> </b>",
+  "image": {
+    "large": "assets/images/large/sign_013.png",
+    "small": "assets/images/small/thumb_sign_013.png"
+  }
+},{
+  "id": 14,
+  "name": "Call Dog Front - Finish Left - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops forward motion</u></b> and calls the dog to front. The handler may take several steps backward. <b><u>The dog must come and sit</u></b> in front. <b><u>Without the handler moving their feet, the dog must finish to the left</u></b>. As the dog clears the handlers path, the handler will heel forward before the dog returns to heel position. <b>(Stationary Exercise)</b> </b>",
+  "image": {
+    "large": "assets/images/large/sign_014.png",
+    "small": "assets/images/small/thumb_sign_014.png"
+  }
+},{
+  "id": 15,
+  "name": "Call Front - Finish Right - SIT",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops forward motion</u></b> and calls the dog to front. The handler may take several steps backward. <b><u>The dog must come and sit</u></b> in front. <b><u>Without the handler moving their feet, the dog must finish to the right and sit</u></b> in heel position.<b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_015.png",
+    "small": "assets/images/small/thumb_sign_015.png"
+  }
+},{
+  "id": 16,
+  "name": "Call Front - Finish Left - SIT",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops forward motion</u></b> and calls the dog to front. The handler may take several steps backward. <b><u>The dog must come and sit</u></b> in front. <b><u>Without the handler moving their feet, the dog must finish to the left and sit</u></b> in heel position.<b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_016.png",
+    "small": "assets/images/small/thumb_sign_016.png"
+  }
+},{
+  "id": 17,
+  "name": "Slow Pace",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "<b><u>The dog and handler must slow down noticeably</u>. </b>This must be followed by a normal pace sign unless it is the last station on the course.",
+  "image": {
+    "large": "assets/images/large/sign_017.png",
+    "small": "assets/images/small/thumb_sign_017.png"
+  }
+},{
+  "id": 18,
+  "name": "Fast Pace",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "<b><u>The dog and handler must speed up noticeably</u> </b>. This must be followed by a normal pace sign.",
+  "image": {
+    "large": "assets/images/large/sign_018.png",
+    "small": "assets/images/small/thumb_sign_018.png"
+  }
+},{
+  "id": 19,
+  "name": "Normal Pace",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "<b><u>The dog and handler </u> </b> must move forward <b><u>walking briskly</u></b>. This station can only be used after a slow or fast sign.",
+  "image": {
+    "large": "assets/images/large/sign_019.png",
+    "small": "assets/images/small/thumb_sign_019.png"
+  }
+},{
+  "id": 20,
+  "name": "Moving Side Step Right",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler takes one step to the right</b>, <b>leading with the right foot</u></b>, and continues heeling along the newly established line. <b><u>The dog must move with the handler</u></b>. This sign will be placed directly in line of the teams path requiring the handler and dog to sidestep to the right to pass the sign.",
+  "image": {
+    "large": "assets/images/large/sign_020.png",
+    "small": "assets/images/small/thumb_sign_020.png"
+  }
+},{
+  "id": 21,
+  "name": "Spiral Right - Dog Outside",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "This sign requires three pylons placed in a straight line with spaces between them of approximately 6-8 feet. <b><u>The dog and handler must turn to the right to move around each of the pylons</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_021.png",
+    "small": "assets/images/small/thumb_sign_021.png"
+  }
+},{
+  "id": 22,
+  "name": "Spiral Left - Dog Inside",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "This sign requires three pylons placed in a straight line with spaces between them of approximately 6-8 feet. <b> <u>The dog and handler must turn to the left to move around each of the pylons.</u></b>",
+  "image": {
+    "large": "assets/images/large/sign_022.png",
+    "small": "assets/images/small/thumb_sign_022.png"
+  }
+},{
+  "id": 23,
+  "name": "Straight Figure 8 Weave Twice",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "This sign requires four pylons placed in a straight line with spaces between them of approximately 6-8 feet. <b> <u>The dog and handler will enter into the weave with the first pylon on their left side. They must complete the entire weave twice</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_023.png",
+    "small": "assets/images/small/thumb_sign_023.png"
+  }
+},{
+  "id": 24,
+  "name": "Serpentine Weave Once",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "This sign requires four pylons placed in a straight line with spaces between them of approximately 6-8 feet. <b><u>The dog and handler will enter into the weave with the first pylon on their left side. They must complete the entire weave once </u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_024.png",
+    "small": "assets/images/small/thumb_sign_024.png"
+  }
+},{
+  "id": 25,
+  "name": "HALT - 1, 2 and 3 Steps",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits</u> </b>in heel position. <b><u>The handler takes one step forward</b>, <b>halts and the dog sits</u> </b>in heel position<b>. <u>The handler takes two steps forward</b>, <b>halts</b> <b>and the dog sits</u> </b>in heel position<b> </b>and then <b><u>three steps forward</b>,<b> halts and the dog sits</u></b> in heel position.<b> </b>The dog moves with the handler each time.<b> </b><b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_025.png",
+    "small": "assets/images/small/thumb_sign_025.png"
+  }
+},{
+  "id": 26,
+  "name": "Call Front - 1, 2 and 3 Steps Backward - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops forward motion</u></b> and calls the dog to front. The handler may take several steps backward. <b><u>The dog must come and sit</u> </b>in front<b>. <u>The handler takes one step backward and halts. The dog must move with the handler and sit</u> </b>in front as the handler halts. <b><u>The handler takes two steps backward and halts. The dog must move with the handler and sit</u> </b>in front as the handler halts. <b><u>The handler takes three steps backward and halts. The dog must move with the handler and sit</u> </b>in front as the handler halts. The handler may command/signal the dog to finish. As the dog clears the handlers path, the handler will heel forward before the dog returns to heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_026.png",
+    "small": "assets/images/small/thumb_sign_026.png"
+  }
+},{
+  "id": 27,
+  "name": "Stop and Down",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops forward motion and the dog downs</u></b> in heel position. <b><u>The dog must stay down until the handler moves forward</u></b>. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_027.png",
+    "small": "assets/images/small/thumb_sign_027.png"
+  }
+},{
+  "id": 28,
+  "name": "HALT - Fast Forward from Sit",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "<b> </b>While heeling, <b><u>the handler halts and the dog sits</u> </b>in heel position. <b><u>The dog and handler</u></b> then heel forward<b> <u>at a fast pace</u></b>. This must be followed by a normal pace sign. <b>(Stationary Exercise)</b><b></b>",
+  "image": {
+    "large": "assets/images/large/sign_028.png",
+    "small": "assets/images/small/thumb_sign_028.png"
+  }
+},{
+  "id": 29,
+  "name": "Left About Turn",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "<b> </b>While heeling, <b><u>the handler will make an about turn to the left</u></b>,<b> </b>while at the same time <b><u>the dog must move around the handler to the right</u></b> and into heel position.",
+  "image": {
+    "large": "assets/images/large/sign_029.png",
+    "small": "assets/images/small/thumb_sign_029.png"
+  }
+},{
+  "id": 30,
+  "name": "HALT - Walk Around",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "<b> </b>While heeling, <b><u>the handler halts and the dog sits</u> </b>in heel position.<b> <u>The dog must stay while the handler walks around behind the dog</b>, <b>returns</u></b> to heel position <b><u>and pauses.</u> </b> The handler must pause before heeling forward. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_030.png",
+    "small": "assets/images/small/thumb_sign_030.png"
+  }
+},{
+  "id": 31,
+  "name": "HALT - Down - Walk Around",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits</u> </b>in heel position. <b><u>The dog must then down and stay while the handler walks around behind the dog, returns</u></b> to heel position<b> <u>and pauses</u></b>. The dog and handler then heel forward.<b> </b><b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_031.png",
+    "small": "assets/images/small/thumb_sign_031.png"
+  }
+},{
+  "id": 32,
+  "name": "Figure 8 - No Distractions",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "This sign requires two pylons spaced approximately 6-8 feet apart. The Figure 8 may be entered with the pylons on either the left or right side. <b><u>The dog and handler will perform a complete figure 8 around the pylons</b>,<b> crossing the center line three times</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_032.png",
+    "small": "assets/images/small/thumb_sign_032.png"
+  }
+},{
+  "id": 33,
+  "name": "HALT - Right Turn - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits</u> </b>in heel position. <b><u>The handler and dog turn right</u></b> together and heel forward. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_033.png",
+    "small": "assets/images/small/thumb_sign_033.png"
+  }
+},{
+  "id": 34,
+  "name": "HALT - Left Turn - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits</u> </b>in heel position. <b><u>The handler and dog turn left</u></b> together and heel forward. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_034.png",
+    "small": "assets/images/small/thumb_sign_034.png"
+  }
+},{
+  "id": 35,
+  "name": "Call Front - Return to Heel",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops forward motion</u></b> and may command/signal the dog to front. The handler may take several steps backward. <b><u>The dog must come and sit</u> </b>in front. <b><u>The dog must stay while the handler walks around behind the dog to return</u></b> to heel position<b>. <u>The handler must pause before heeling forward.</u> </b><b>(Stationary Exercise)</b><b></b>",
+  "image": {
+    "large": "assets/images/large/sign_035.png",
+    "small": "assets/images/small/thumb_sign_035.png"
+  }
+},{
+  "id": 36,
+  "name": "HALT - Slow Forward From Sit",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits</u> </b>in heel position. <b><u>The dog and handler</u></b> then heel forward<b> <u>at a slow pace</u></b>. This must be followed by a normal pace sign unless it is the last sign on the course. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_036.png",
+    "small": "assets/images/small/thumb_sign_036.png"
+  }
+},{
+  "id": 37,
+  "name": "Loop Right",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling,<b> <u>the dog and handler loop right crossing over the original path</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_037.png",
+    "small": "assets/images/small/thumb_sign_037.png"
+  }
+},{
+  "id": 38,
+  "name": "Loop Left",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling,<b> <u>the dog and handler loop left crossing over the original path</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_038.png",
+    "small": "assets/images/small/thumb_sign_038.png"
+  }
+},{
+  "id": 39,
+  "name": "Diagonal Right",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling,<b> <u>the dog and handler make an open angle turn to the right. The dog must move with the handler</u></b>. This sign will be placed directly in line of the teams path.",
+  "image": {
+    "large": "assets/images/large/sign_039.png",
+    "small": "assets/images/small/thumb_sign_039.png"
+  }
+},{
+  "id": 40,
+  "name": "Diagonal Left",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the dog and handler make an open angle turn to the left. The dog must move with the handler</u></b>. This sign will be placed directly in line of the teams path.",
+  "image": {
+    "large": "assets/images/large/sign_040.png",
+    "small": "assets/images/small/thumb_sign_040.png"
+  }
+},{
+  "id": 41,
+  "name": "Offset Serpentine Right",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "This sign requires three pylons. The center pylon will be offset to the right by 3-4 feet with the other two spaced approximately 6-8 feet apart. <b><u>The dog and handler will enter into the weave with the first pylon on their right side. They must complete the entire serpentine together</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_041.png",
+    "small": "assets/images/small/thumb_sign_041.png"
+  }
+},{
+  "id": 42,
+  "name": "Offset Serpentine Left",
+  "constraints": {
+    "org": "AKC",
+    "beginner": true,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "This sign requires three pylons. The center pylon will be offset to the left by 3-4 feet with the other two spaced approximately 6-8 feet apart. <b><u>The dog and handler will enter into the weave with the first pylon on their left side. They must complete the entire serpentine together</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_042.png",
+    "small": "assets/images/small/thumb_sign_042.png"
+  }
+},{
+  "id": 101,
+  "name": "HALT - About Turn Right - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling,<b> <u>the handler halts and the dog sits. The dog and handler turn 180° to the right</u></b> and heel forward. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_101.png",
+    "small": "assets/images/small/thumb_sign_101.png"
+  }
+},{
+  "id": 102,
+  "name": "HALT - About U Turn - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog and handler turn 180° to the left</u></b> and heel forward. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_102.png",
+    "small": "assets/images/small/thumb_sign_102.png"
+  }
+},{
+  "id": 103,
+  "name": "Send over Jump - Handler Passes By",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "<b><u>The dog must clear the jump on the first attempt, in the proper direction</u> </b>without stopping, while<b> <u>the handler passes by without stopping</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_103.png",
+    "small": "assets/images/small/thumb_sign_103.png"
+  }
+},{
+  "id": 104,
+  "name": "HALT - Turn Right One Step - Call to Heel - HALT",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog must stay sitting while the handler turns</b>,<b> takes one step to the right</b>,<b> halts and calls the dog to heel. The dog must then return to the handler</u> </b>to heel positon<b> <u>and sit</u> </b><b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_104.png",
+    "small": "assets/images/small/thumb_sign_104.png"
+  }
+},{
+  "id": 105,
+  "name": "HALT - Stand - Walk Around",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog must then stand and stay while the handler walks around behind the dog</b>,<b> returns</u></b> to heel position<b> <u>and pauses</u></b>. The dog and handler then heel forward. The handler may move forward with the dog to stand it.<b> </b>In the Intermediate and Advanced classes the handler may touch the dog to stand it. <b> <u>In the Excellent and Master classes the handler may not touch the dog to stand it</u></b>. <b>(Stationary Exercise)</b><b></b>",
+  "image": {
+    "large": "assets/images/large/sign_105.png",
+    "small": "assets/images/small/thumb_sign_105.png"
+  }
+},{
+  "id": 106,
+  "name": "HALT - 90° Pivot Right - HALT",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog and handler pivot 90° to the right together and the dog sits</u> </b>in heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_106.png",
+    "small": "assets/images/small/thumb_sign_106.png"
+  }
+},{
+  "id": 107,
+  "name": "HALT - 90° Pivot Left - HALT",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog and handler pivot 90° to the left together and the dog sits</u></b> in heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_107.png",
+    "small": "assets/images/small/thumb_sign_107.png"
+  }
+},{
+  "id": 108,
+  "name": "Offset Figure 8",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "This sign requires two pylons spaced about 6 - 8 feet apart. The two distractions will be placed to the sides about 5-6 feet apart. The Figure 8 may be entered with the pylons on either the left or the right side. <b><u>The dog and handler and will perform a complete figure 8 together around the pylons, crossing the center line three times without disturbing the distractions</u></b>. The distractions will be securely covered containers with tempting dog treats or dog safe toys may be used in place of dog treats.",
+  "image": {
+    "large": "assets/images/large/sign_108.png",
+    "small": "assets/images/small/thumb_sign_108.png"
+  }
+},{
+  "id": 109,
+  "name": "HALT - Side Step Right - HALT",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts in front of the sign and the dog sits. The dog and handler move one step directly to the right together. The handler halts and the dog sits </u></b>in heel position. This sign will be placed directly in line of the teams path requiring the dog and handler to sidestep to the right to pass the sign.<b> </b><b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_109.png",
+    "small": "assets/images/small/thumb_sign_109.png"
+  }
+},{
+  "id": 110,
+  "name": "HALT - Call Front - Finish Right",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. Without the handler moving their feet, the dog must then come and sit</u> </b>in front. <b><u>Without the handler moving their feet, the dog must finish to the right and sit</u> </b>in heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_110.png",
+    "small": "assets/images/small/thumb_sign_110.png"
+  }
+},{
+  "id": 111,
+  "name": "HALT - Call Front - Finish Left",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. Without the handler moving their feet</b>,<b> the dog must then come and sit</u> </b>in front. <b><u>Without the handler moving their feet</b>,<b> the dog must finish to the left and sit</u> </b>in heel position. <b>(Stationary Exercise)</b><b></b>",
+  "image": {
+    "large": "assets/images/large/sign_111.png",
+    "small": "assets/images/small/thumb_sign_111.png"
+  }
+},{
+  "id": 112,
+  "name": "HALT - 180° Pivot Right - HALT",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog and handler pivot 180° to the right together and the dog sits</u> </b>in heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_112.png",
+    "small": "assets/images/small/thumb_sign_112.png"
+  }
+},{
+  "id": 113,
+  "name": "HALT - 180° Pivot left - HALT",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog and handler pivot 180° to the left together and the dog sits</u> </b>in heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_113.png",
+    "small": "assets/images/small/thumb_sign_113.png"
+  }
+},{
+  "id": 114,
+  "name": "HALT - Down - Sit",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog must then down and sit</u></b>. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_114.png",
+    "small": "assets/images/small/thumb_sign_114.png"
+  }
+},{
+  "id": 115,
+  "name": "HALT - Stand",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog must then stand</u></b> in heel position. The handler may move forward with the dog to stand it.<b> </b>In the Intermediate and Advanced classes the handler may touch the dog to stand it.<b> <u>In the Excellent and Master classes the handler may not touch the dog to stand it. </u> </b><b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_115.png",
+    "small": "assets/images/small/thumb_sign_115.png"
+  }
+},{
+  "id": 116,
+  "name": "HALT - Pivot Right - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog and handler pivot 90° to the right together</u></b> and heel forward. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_116.png",
+    "small": "assets/images/small/thumb_sign_116.png"
+  }
+},{
+  "id": 117,
+  "name": "HALT - Pivot Left - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog and handler pivot 90° to the left together</u></b> and heel forward. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_117.png",
+    "small": "assets/images/small/thumb_sign_117.png"
+  }
+},{
+  "id": 118,
+  "name": "HALT - Leave 2 Steps - Call to Heel - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog must stay while the handler takes two steps forward and pauses.</u> </b>The handler begins to heel forward and commands the dog to heel. <b><u>The dog must speed up noticeably</u> </b>to return to heel position.<b> </b><b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_118.png",
+    "small": "assets/images/small/thumb_sign_118.png"
+  }
+},{
+  "id": 119,
+  "name": "Right Turn - Dog Circles Right - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler turns right and the dog circles around the handler to the right</u></b> returning to heel position and heeling forward. The handler may pause as needed.",
+  "image": {
+    "large": "assets/images/large/sign_119.png",
+    "small": "assets/images/small/thumb_sign_119.png"
+  }
+},{
+  "id": 120,
+  "name": "Left Turn - Dog Circles Right - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling,<b> <u>the handler turns left and the dog circles around the handler to the right</u> </b>returning to heel position and heeling forward. The handler may pause as needed.",
+  "image": {
+    "large": "assets/images/large/sign_120.png",
+    "small": "assets/images/small/thumb_sign_120.png"
+  }
+},{
+  "id": 121,
+  "name": "HALT - Step in Front - Finish Right - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The handler steps in front to face the dog. Without the handler moving their feet, the dog must finish right</u></b>. As the dog clears the handlers path, the handler will heel forward before the dog returns to heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_121.png",
+    "small": "assets/images/small/thumb_sign_121.png"
+  }
+},{
+  "id": 122,
+  "name": "HALT - Step in Front - Finish Left - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The handler steps in front to face the dog. Without the handler moving their feet</b>,<b> the dog must finish left</u></b>. As the dog clears the handlers path, the handler will heel forward before the dog returns to heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_122.png",
+    "small": "assets/images/small/thumb_sign_122.png"
+  }
+},{
+  "id": 123,
+  "name": "2 Side Steps Right - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": true,
+    "advanced": true,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler will take two side steps to the right</b>,<b> leading with the right foot</u></b>, and continue heeling along the newly established line. <b><u>The dog must move with the handler</u></b>. This sign will be placed directly in line of the teams path requiring the dog and handler to side step to the right to pass the sign.",
+  "image": {
+    "large": "assets/images/large/sign_123.png",
+    "small": "assets/images/small/thumb_sign_123.png"
+  }
+},{
+  "id": 201,
+  "name": "HALT - Stand - Down",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog must stand and then down without the handler moving their feet or touching the dog. The dog must remain down until the handler moves forward</u></b>. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_201.png",
+    "small": "assets/images/small/thumb_sign_201.png"
+  }
+},{
+  "id": 202,
+  "name": "HALT - Stand - Sit",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog must stand and then sit without the handler moving their feet or touching the dog. The dog must remain sitting until the handler moves forward</u></b>. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_202.png",
+    "small": "assets/images/small/thumb_sign_202.png"
+  }
+},{
+  "id": 203,
+  "name": "Moving Stand - Walk Around",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <u><b>the dog must stand and stay as the handler, without pausing, walks around behind the dog, returns</u></b> to heel position <b><u>and pauses</u></b>. The dog and handler then heel forward. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_203.png",
+    "small": "assets/images/small/thumb_sign_203.png"
+  }
+},{
+  "id": 204,
+  "name": "Moving Down - Walk Around",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the dog must down and stay as the handler, without pausing</b>, walks around behind the dog, returns</u></b> to heel position <b><u>and pauses</u></b>. The dog and handler then heel forward. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_204.png",
+    "small": "assets/images/small/thumb_sign_204.png"
+  }
+},{
+  "id": 205,
+  "name": "Backup 3 Steps",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling,<b> <u>the dog and handler reverse direction walking backward at least 3 steps together</u></b> and then continue heeling forward. <b><u>The dog must remain standing throughout</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_205.png",
+    "small": "assets/images/small/thumb_sign_205.png"
+  }
+},{
+  "id": 206,
+  "name": "Down While Heeling - Call to Finish - Sit",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling,<b> <u>the dog must down and stay as the handler</b>,<b> without pausing</b>,<b> continues about 6 feet to the Call sign and turns to face the dog. Without moving their feet</u></b>, the handler may command/signal the dog to finish. <b><u>The dog must finish</u> </b>to the right or left<b> <u>and sit</u> </b>in heel position.<b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_206.png",
+    "small": "assets/images/small/thumb_sign_206.png"
+  }
+},{
+  "id": 207,
+  "name": "Stand While Heeling - Call to Finish - Sit",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling,<b> <u>the dog must stand and stay as the handler</b>,<b> without pausing</b>,<b> continues about 6 feet to the Call sign and turns to face the dog. Without moving their feet</u></b>, the handler may command/signal the dog to finish. <b><u>The dog must finish</u> </b>to the right or left<b> <u>and sit</u> </b>in heel position. <b>(Stationary Exercise)</b><b></b>",
+  "image": {
+    "large": "assets/images/large/sign_207.png",
+    "small": "assets/images/small/thumb_sign_207.png"
+  }
+},{
+  "id": 208,
+  "name": "Stand - Leave - Sit - Call Front - Finish - Sit",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler will stop forward motion</b>;<b> the dog must stand and stay. The handler will walk about 6 feet to the Call sign and turn to face the dog. The dog must then sit</b>, <b>come and sit</u> </b>in front. <b><u>Without moving their feet</u></b>,<b> </b>the handler may command/signal the dog to finish.<b> <u>The dog must finish</u> </b>to the right or left<b> <u>and sit</u> </b>in heel position. <b> </b><b>(Stationary Exercise)</b><b></b>",
+  "image": {
+    "large": "assets/images/large/sign_208.png",
+    "small": "assets/images/small/thumb_sign_208.png"
+  }
+},{
+  "id": 209,
+  "name": "Stand - Leave - Down - Call Front - Finish - Sit",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler will stop forward motion</b>;<b> the dog must stand and stay. The handler will walk about 6 feet to the Call sign and turn to face the dog. The dog must then down</b>, <b>come and sit </u></b>in front.<b> <u>Without moving their feet</u></b>, the handler may command/signal the dog to finish. <b><u>The dog must finish</u> </b>to the right or left<b> <u>and sit</u> </b>in heel position.<b> </b><b>(Stationary Exercise)</b><b></b>",
+  "image": {
+    "large": "assets/images/large/sign_209.png",
+    "small": "assets/images/small/thumb_sign_209.png"
+  }
+},{
+  "id": 210,
+  "name": "Send to Jump",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "<b> <u>At the sign the dog must leave the handler to jump. The dog must clear the jump on the first attempt, in the proper direction</u></b> without stopping. <b><u>The handler must remain at least 3 feet away from the jump and may not pass the jump until the dog has returned</u> </b>to heel position. (See Chapter 2, Section 23)",
+  "image": {
+    "large": "assets/images/large/sign_210.png",
+    "small": "assets/images/small/thumb_sign_210.png"
+  }
+},{
+  "id": 211,
+  "name": "Double Left About Turn",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler will make an about turn to the left</u></b>, while at the same time <b><u>the dog must move around the handler to the right</u></b> and into heel position. The handler will take two or three steps before <b><u>the dog and handler complete the left about turn for a second time.</u></b>",
+  "image": {
+    "large": "assets/images/large/sign_211.png",
+    "small": "assets/images/small/thumb_sign_211.png"
+  }
+},{
+  "id": 212,
+  "name": "About Turn Right - About U Turn",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the dog and handler turn 180° to the right</u></b>,<b> </b>take two or three steps forward and then<b> <u>turn 180° to the left</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_212.png",
+    "small": "assets/images/small/thumb_sign_212.png"
+  }
+},{
+  "id": 213,
+  "name": "About U Turn - About Turn Right",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the dog and handler turn 180° to the left</u></b>, take two or three steps forward and then <b><u>turn 180° to the right</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_213.png",
+    "small": "assets/images/small/thumb_sign_213.png"
+  }
+},{
+  "id": 214,
+  "name": "Stand - Right Turn - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops and without touching the dog</b>,<b> the dog stands</u></b> in heel position. <b><u>The dog and handler turn right</u></b> and then heel forward. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_214.png",
+    "small": "assets/images/small/thumb_sign_214.png"
+  }
+},{
+  "id": 215,
+  "name": "Stand - Left Turn - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops and without touching the dog</b>,<b> the dog stands</u></b> in heel position. <b><u>The dog and handler turn left</u> </b>and then heel forward.<b> </b><b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_215.png",
+    "small": "assets/images/small/thumb_sign_215.png"
+  }
+},{
+  "id": 216,
+  "name": "HALT - Dog Circles Right - SIT",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog circles around the handler to the right</u></b>, returns to heel position <b><u>and sits</u></b>. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_216.png",
+    "small": "assets/images/small/thumb_sign_216.png"
+  }
+},{
+  "id": 298,
+  "name": "Sit Stay",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "<b><u>The dog must remain in the sit position while the handler gets the leash</b>, <b>walks around behind the dog</u></b> to return to heel position and<b> <u>until</u> </b>the judge says <b><u>\"Exercise Finished\"</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_298.png",
+    "small": "assets/images/small/thumb_sign_298.png"
+  }
+},{
+  "id": 299,
+  "name": "Call",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": true,
+    "master": true
+  },
+  "description": "This sign will be used as a marker for associated signs.",
+  "image": {
+    "large": "assets/images/large/sign_299.png",
+    "small": "assets/images/small/thumb_sign_299.png"
+  }
+},{
+  "id": 301,
+  "name": "HALT - Recall over Jump - Finish - Right Turn - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "This sign will be placed at least 8 feet before the jump. While heeling, <b><u>the handler halts and the dog sits</u></b> in front of the jump. <b><u>The handler will leave the dog</u></b>, <b><u>walk to the other side, stand in front of the jump and turn to face the dog</u></b>.<b><u> The dog must remain sitting until called over the jump</u></b>.<b><u> The dog must clear the jump on the first attempt</u></b>,<b><u> in the proper direction</u></b> without stopping, <b><u>come</u></b> <b><u>and sit</u></b> in front. <b><u>Without moving their feet</u></b>, the handler may command/signal the dog to finish. <b><u>The dog must finish</u></b> to the right or left. As the dog clears the handlers path, <b><u>the handler will move to the newly established line, turn right</u></b> and heel forward before the dog returns to heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_301.png",
+    "small": "assets/images/small/thumb_sign_301.png",
+    "helper_large": "assets/images/large/sign_301_a.png",
+    "helper_small": "assets/images/small/thumb_sign_301_a.png"
+  }
+},{
+  "id": 302,
+  "name": "HALT - Recall over Jump - Finish - Left Turn - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "This sign will be placed at least 8 feet before the jump. While heeling, <b><u>the handler halts and the dog sits</u></b> in front of the jump. <b><u>The handler will leave the dog</u></b>,<b><u> walk to the other side, stand in front of the jump and turn to face the dog</u></b>.<b><u> The dog must remain sitting until called over the jump</u></b>. <b><u>The dog must clear the jump on the first attempt</u></b>,<b><u> in the proper direction</u></b> without stopping, <b><u>come</u></b> <b><u>and sit</u></b> in front. <b><u>Without moving their feet</u></b>, the handler may command/signal the dog to finish. <b><u>The dog must finish</u></b> to the right or left. As the dog clears the handlers path, <b><u>the handler will move to the newly established line, turn left</u></b> and heel forward before the dog returns to heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_302.png",
+    "small": "assets/images/small/thumb_sign_302.png",
+    "helper_large": "assets/images/large/sign_302_a.png",
+    "helper_small": "assets/images/small/thumb_sign_302_a.png"
+  }
+},{
+  "id": 303,
+  "name": "HALT - Recall over Jump - Finish - About Turn - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "This sign will be placed at least 8 feet before the jump. <b> </b>While heeling, <b><u>the handler halts and the dog sits</u></b> in front of the jump.<b> <u>The handler will leave the dog, walk to the other side, stand in front of the jump and turn to face the dog. The dog must remain sitting until called over the jump. The dog must clear the jump on the first attempt, in the proper direction</u> </b>without stopping,<b> <u>come and sit</u></b> in front.<b> <u>Without moving their feet</u></b>, the handler may command/signal the dog to finish. <b><u>The dog must finish</u></b> to the right or left. As the dog clears the handlers path, <b><u>the handler will make an about turn</u></b> and heel forward before the dog returns to heel position. <b>(Stationary Exercise)</b>.",
+  "image": {
+    "large": "assets/images/large/sign_303.png",
+    "small": "assets/images/small/thumb_sign_303.png",
+    "helper_large": "assets/images/large/sign_303_a.png",
+    "helper_small": "assets/images/small/thumb_sign_303_a.png"
+  }
+},{
+  "id": 304,
+  "name": "Call Front - Move 2 Side Steps Right - Finish Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops</u></b> and calls the dog to front. The handler may take several steps backward. <b><u>The dog must come and sit</u></b> in front<b>. <u>The handler will take two steps to the right and the dog must move with the handler</u></b>. When the handler stops moving<b> <u>the dog must sit</u></b> in front. <b><u>Without moving their feet</u></b>, the handler may command/signal the dog to finish. <b><u>The dog must finish</u></b> to the right or left<b>. </b>As the dog clears the handlers path, the handler will heel forward before the dog returns to heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_304.png",
+    "small": "assets/images/small/thumb_sign_304.png"
+  }
+},{
+  "id": 305,
+  "name": "Call Front - Move 2 Side Steps Left - Finish Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops</u></b> and calls the dog to front. The handler may take several steps backward. <b><u>The dog must come and sit</u></b> in front<b>. <u>The handler will take two side steps to the left and the dog must move with the handler</u></b>. When the handler stops moving<b> <u>the dog must sit</u></b> in front. <b><u>Without moving their feet</u></b>, the handler may command/signal the dog to finish. <b><u>The dog must finish</u></b> to the right or left<b>. </b>As the dog clears the handlers path, the handler will heel forward before the dog returns to heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_305.png",
+    "small": "assets/images/small/thumb_sign_305.png"
+  }
+},{
+  "id": 306,
+  "name": "HALT - Send Away Sit - Return - Follow Arrow Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "The pylon will be placed approximately 6 feet away from the sign. While heeling, <b><u>the handler halts and the dog sits. When sent</b>,<b> the dog must go to the area of the pylon stop and sit</u></b> with its attention on the handler, but it need not sit squarely. <b><u>The dog must stay while the handler returns</u></b> to heel position. The handler may return to heel position by going directly to heel or walking around behind the dog. <b><u>The handler must pause</u></b> before heeling forward in the direction of the arrow. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_306.png",
+    "small": "assets/images/small/thumb_sign_306.png",
+    "helper_large": "assets/images/large/sign_306_a.png",
+    "helper_small": "assets/images/small/thumb_sign_306_a.png"
+  }
+},{
+  "id": 307,
+  "name": "HALT - Send Away Sit - Return - Follow Arrow Right",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "The pylon will be placed approximately 6 feet away from the sign. While heeling, <b><u>the handler halts and the dog sits. When sent</b>,<b> the dog must go to the area of the pylon stop and sit</u></b> with its attention on the handler, but it need not sit squarely. <b><u>The dog must stay while the handler returns</u></b> to heel position. The handler may return to heel position by going directly to heel or walking around behind the dog. <b><u>The handler must pause</u></b> before heeling to the right in the direction of the arrow. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_307.png",
+    "small": "assets/images/small/thumb_sign_307.png",
+    "helper_large": "assets/images/large/sign_307_a.png",
+    "helper_small": "assets/images/small/thumb_sign_307_a.png"
+  }
+},{
+  "id": 308,
+  "name": "HALT - Send Away Sit - Return - Follow Arrow Left",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "The pylon will be placed approximately 6 feet away from the sign. While heeling, <b><u>the handler halts and the dog sits. When sent</b>, <b>the dog must go to the area of the pylon stop and sit</u></b> with its attention on the handler, but it need not sit squarely. <b><u>The dog must stay while the handler returns</u></b> to heel position. The handler may return to heel position by going directly to heel or walking around behind the dog. <b><u>The handler must pause</u></b> before heeling to the left in the direction of the arrow. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_308.png",
+    "small": "assets/images/small/thumb_sign_308.png",
+    "helper_large": "assets/images/large/sign_308_a.png",
+    "helper_small": "assets/images/small/thumb_sign_308_a.png"
+  }
+},{
+  "id": 309,
+  "name": "Backup 3 Steps - Right Backup 1 or 2 Steps - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the dog and handler reverse direction walking backwards at least 3 steps</u></b>, and without stopping, <b><u>take one or two steps backwards 90° to the right</u></b> and then heel forward. <b><u>The dog must move with the handler</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_309.png",
+    "small": "assets/images/small/thumb_sign_309.png"
+  }
+},{
+  "id": 310,
+  "name": "Backup 3 Steps - Left Backup 1 or 2 Steps - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the dog and handler reverse direction walking backwards at least 3 steps</u></b>, and without stopping, <b><u>take one or two steps backwards 90° to the left</u> </b>and then heel forward. <b><u>The dog must move with the handler.</u></b>",
+  "image": {
+    "large": "assets/images/large/sign_310.png",
+    "small": "assets/images/small/thumb_sign_310.png"
+  }
+},{
+  "id": 311,
+  "name": "Backup 3 Steps - Stand & Leave - Call to Finish - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "The Call sign will be placed approximately three feet away from this sign. <b> </b>While heeling, <b><u>the dog and handler reverse direction and walk backwards at least 3 steps</u></b>. The handler may pause to stand and leave the dog. <b><u>The dog must stand and stay until called. The handler will walk to the Call sign and turn to face the dog</b>. <b>Without moving their feet</u></b>,<b> </b>the handler may command/signal the dog to finish. <b><u>The dog must finish</u></b> to the right or left<b>. </b>As the dog clears the handlers path, the handler will heel forward. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_311.png",
+    "small": "assets/images/small/thumb_sign_311.png"
+  }
+},{
+  "id": 312,
+  "name": "Dog Spins Right - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops and the dog</b>,<b> without sitting</b>,<b> spins in a circle to the right alongside the handler</u></b>. When the dog returns to heel position, the dog and handler heel forward.",
+  "image": {
+    "large": "assets/images/large/sign_312.png",
+    "small": "assets/images/small/thumb_sign_312.png"
+  }
+},{
+  "id": 313,
+  "name": "Dog Spins Left - Forward",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops and the dog</b>,<b> without sitting</b>, <b>spins in a circle to the left alongside the handler</u></b>. When the dog returns to heel position, the dog and handler heel forward.",
+  "image": {
+    "large": "assets/images/large/sign_313.png",
+    "small": "assets/images/small/thumb_sign_313.png"
+  }
+},{
+  "id": 314,
+  "name": "Cloverleaf",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "This sign requires the pylons be spaced approximately 6 feet apart. <b><u>The dog and handler must complete the cloverleaf by crossing the center line four times.</u> </b>The four pylons will be numbered sequentially. The number \"1\" pylon will be placed to the handlers left, and indicates the entry and exit points for the performance of this sign. This is a change of direction sign and upon exiting the team may go in any direction to the next sign.",
+  "image": {
+    "large": "assets/images/large/sign_314.png",
+    "small": "assets/images/small/thumb_sign_314.png"
+  }
+},{
+  "id": 315,
+  "name": "Double Left About Turn - Right Turn",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler will make an about turn to the left</u></b>, while at the same time <b><u>the dog must move around the handler to the right</u> </b>and into heel position. The handler will take two or three steps before <b><u>the dog and handler complete the left about turn a second time. The dog and handler then turn right</u></b> and heel forward.",
+  "image": {
+    "large": "assets/images/large/sign_315.png",
+    "small": "assets/images/small/thumb_sign_315.png"
+  }
+},{
+  "id": 316,
+  "name": "Double Left About Turn - Left Turn",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler will make an about turn to the left</u></b>, while at the same time <b><u>the dog must move around the handler to the right</u> </b>and into heel position. The handler will take two or three steps before <b><u>the dog and handler complete the left about turn a second time. The dog and handler then turn left</u></b> and heel forward.",
+  "image": {
+    "large": "assets/images/large/sign_316.png",
+    "small": "assets/images/small/thumb_sign_316.png"
+  }
+},{
+  "id": 317,
+  "name": "HALT - Leave - Recall - Finish Right - Sit",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog must stay while the handler leaves and walks approximately 15 feet</u> </b>to the Call sign,<b> <u>turns and faces the dog</u></b>. When called,<b> <u>the dog must go directly to the handler and sit </u></b>in front. <b><u>Without moving their feet</u></b>, the handler may command/signal the dog to finish. <b><u>The dog must finish right and sit </u></b>in heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_317.png",
+    "small": "assets/images/small/thumb_sign_317.png"
+  }
+},{
+  "id": 318,
+  "name": "HALT - Leave - Recall - Finish Left - Sit",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler halts and the dog sits. The dog must stay while the handler leaves and walks approximately 15 feet </u></b>to the Call sign,<b> <u>turns and faces the dog</u></b>. When called, <b><u>the dog must go directly to the handler and sit</u> </b>in front<b>. <u>Without moving their feet</u></b>, the handler may command/signal the dog to finish. <b><u>The dog must finish left and sit</u> </b>in heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_318.png",
+    "small": "assets/images/small/thumb_sign_318.png"
+  }
+},{
+  "id": 319,
+  "name": "Side by Side 360°Right Circle",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the dog and handler will stop forward motion and make a 360° side by side right circle</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_319.png",
+    "small": "assets/images/small/thumb_sign_319.png"
+  }
+},{
+  "id": 320,
+  "name": "Side by Side 360°Left Circle",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the dog and handler will stop forward motion and make a 360° side by side left circle</u></b>.",
+  "image": {
+    "large": "assets/images/large/sign_320.png",
+    "small": "assets/images/small/thumb_sign_320.png"
+  }
+},{
+  "id": 321,
+  "name": "Dog Circles Right Around Handler - Handler Circles Left",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the dog and handler will stop forward motion. The dog must circle right around the handler and the handler will circle left at the same time the dog is moving right</u></b>. The dog and handler heel forward. This is a 360° circle with the dog and handler moving in opposite directions.",
+  "image": {
+    "large": "assets/images/large/sign_321.png",
+    "small": "assets/images/small/thumb_sign_321.png"
+  }
+},{
+  "id": 322,
+  "name": "Stand - Leave 2 Steps - Call to Heel",
+  "constraints": {
+    "org": "AKC",
+    "beginner": false,
+    "intermediate": false,
+    "advanced": false,
+    "excellent": false,
+    "master": true
+  },
+  "description": "While heeling, <b><u>the handler stops and the dog stands</u> </b>in heel position. <b><u>The dog must stand and stay while the handler takes two steps forward and pauses</u></b>. The handler begins to heel forward and then commands the dog to heel. <b><u>The dog must speed up noticeably</u></b> to resume heel position. <b>(Stationary Exercise)</b>",
+  "image": {
+    "large": "assets/images/large/sign_322.png",
+    "small": "assets/images/small/thumb_sign_322.png"
+  }
+}
 ]

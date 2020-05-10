@@ -19,7 +19,7 @@
             <div align="center" class="card-img-top" style="margin-bottom: 7px;">
                 <img [src]="sign.image.large" [width]="200" [alt]="'Sign ' + sign.id + ' image'">
             </div>
-            <div class="card-text">{{ sign.description }}</div>
+            <div class="card-text" [innerHTML]="sign.description"></div>
             <div class="card-footer text-muted">
                 <p>CAN APPEAR IN:
                     <span [style.visibility]="sign.constraints.beginner ? 'visible': 'hidden'"> <strong> RN
