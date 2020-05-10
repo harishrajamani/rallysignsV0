@@ -1,5 +1,4 @@
 <canvas #myCanvas (click)="onCanvasClick($event)" class="map-area-canvas" width="800" height="800" style="border-style:solid;"></canvas>
-<app-map-table [signs]="signs"></app-map-table>
 
 <div #myActionGroup class="btn-group" role="group" aria-label="Basic example">
     <button (click)="onAddButtonClick()" [hidden]="addButtonHidden()" type="button" class="btn btn-secondary">Add</button>
@@ -9,4 +8,5 @@
 
 <app-map-sign #myMapSigns *ngFor="let sign of signs"
 [sign]="sign"
+[useMapLocation]="true"
 (clickedSign)="onSignClick($event)"></app-map-sign>

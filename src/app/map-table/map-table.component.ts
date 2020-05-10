@@ -1,4 +1,4 @@
-import { Sign } from './../map.service';
+import { Sign, MapService } from './../map.service';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 export interface TableSign {
@@ -13,13 +13,15 @@ export interface TableSign {
   styleUrls: ['./map-table.component.scss']
 })
 export class MapTableComponent implements OnInit {
-  @Input() signs: Sign[];
+  // Map signs. This is only a reflected property of MapService.getMapSigns().
+  // Meaning, MapAreaComponent doesn't maintain map state, it always gets it fresh
+  // from MapService (during ngOnInit()).
+  signs: Sign[];
 
-  //@ViewChild('table') table: MatTable<TableSign>;
-
-  constructor() { }
+  constructor(private mapService: MapService) { }
 
   ngOnInit(): void {
+    this.signs = this.mapService.getMapSigns();
   }
 
 }

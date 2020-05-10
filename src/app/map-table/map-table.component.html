@@ -1,1 +1,21 @@
-<p>map-table works!</p>
+<h3>Map Table: </h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Position</th>
+            <th scope="col">Sign #</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sign of signs">
+            <th scope="row">{{ sign.mapIndex }}</th>
+            <td> {{ sign.signObj["id"] }} </td>
+            <td> {{ sign.signObj["name"] }} </td>
+            <td class="table-sign-td">
+                <app-map-sign [sign]="sign" [useMapLocation]="false"></app-map-sign>
+            </td>
+        </tr>
+    </tbody>
+</table>

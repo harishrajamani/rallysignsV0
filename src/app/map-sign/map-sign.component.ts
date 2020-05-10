@@ -10,6 +10,8 @@ export class MapSignComponent implements OnInit {
 
   @Input() sign: Sign;
 
+  @Input() useMapLocation: boolean;
+
   @Output() clickedSign = new EventEmitter<Sign>();
 
   @ViewChild('mySignDiv', {static: true})

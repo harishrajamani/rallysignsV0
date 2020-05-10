@@ -1,3 +1,7 @@
-<div #mySignDiv (click)="onClick()" class="map-sign-div" [id]="getId()" [style.left.px]="getX()" [style.top.px]="getY()">
-    <img [src]="getImg()" [style.width.%]="100">
+<div #mySignDiv (click)="onClick()" class="map-sign-div"
+    [id]="getId()"
+    [style.left.px]="useMapLocation? getX(): null"
+    [style.top.px]="useMapLocation? getY(): null">
+    <img [src]="getImg()"
+         [style.width.%]="useMapLocation? '100': '50'">
 </div>
