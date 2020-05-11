@@ -1,6 +1,6 @@
 import { SignService } from './../sign.service';
 import { MapService, MapRequest, Sign, MapAction, MapLocation } from './../map.service';
-import { Component, OnInit, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { ActivationStart, Router } from '@angular/router';
 import { MapSignComponent } from '../map-sign/map-sign.component';
 
@@ -9,7 +9,7 @@ import { MapSignComponent } from '../map-sign/map-sign.component';
   templateUrl: './map-area.component.html',
   styleUrls: ['./map-area.component.scss']
 })
-export class MapAreaComponent implements OnInit {
+export class MapAreaComponent implements OnInit, AfterViewInit {
   // A canvas for letting the user issue click actions.
   @ViewChild('myCanvas', { static: true })
   myCanvas: ElementRef<HTMLCanvasElement>;
@@ -47,12 +47,21 @@ export class MapAreaComponent implements OnInit {
     // Start without any Action menus.
     this.hideActionButtonGroup();
     // Refresh state of all the map signs
+    this.signs = this.mapService.getMapSigns();
   }
 
   ngAfterViewInit(): void {
-    this.signs = this.mapService.getMapSigns();
-
+    // When we add a sign, we need to redraw.
+    // TODO(harishrajamani): Why does this not cause a change to myMapSigns?
+    this.redrawLines();
+  
+    // When we delete or reorder signs, we need to redraw.
+    this.myMapSigns.changes.subscribe(data => {
+      console.log('myMapSigns changed!');
+      this.redrawLines();
+    });
   }
+
 
   // When the canvas is clicked, we register a new map request at the clicked location.
   // This will prompt user interactions with myActionGroup that determine the action and potential sign updates
@@ -69,13 +78,6 @@ export class MapAreaComponent implements OnInit {
     // Register click event with MapService.
     this.mapService.registerClick({ x: pageX, y: pageY, canvasX: offsetX, canvasY: offsetY });
     this.displayActionButtonGroup(pageX, pageY, [MapAction.Add]);
-
-    this.redrawLines(offsetX, offsetY);
-  }
-
-  // TODO(harishr): This is not doing anything.
-  private listenForMapSignChanges() {
-    this.myMapSigns.changes.subscribe(this.redrawLines);
   }
 
   // Redraws lines between signs in order.
@@ -106,10 +108,8 @@ export class MapAreaComponent implements OnInit {
     this.mapService.registerAction(MapAction.Add);
     // The button group's job is done.
     this.hideActionButtonGroup();
-    this.redrawLines();
 
-
-    // TODO(als83): Add a router link here
+    // Navigate to signpicker by router link.
     this.router.navigateByUrl('/signspicker');
   }
 
@@ -120,7 +120,6 @@ export class MapAreaComponent implements OnInit {
     this.mapService.registerAction(MapAction.Edit);
     // The button group's job is done.
     this.hideActionButtonGroup();
-    this.redrawLines();
 
     // TODO(als83): Add a router link here
     this.router.navigateByUrl('/signspicker');
@@ -133,7 +132,6 @@ export class MapAreaComponent implements OnInit {
     this.mapService.registerAction(MapAction.Delete);
     // The button group's job is done.
     this.hideActionButtonGroup();
-    this.redrawLines();
   }
 
   getMapSignWidth() {
