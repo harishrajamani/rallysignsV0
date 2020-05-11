@@ -2,6 +2,7 @@ import { MapService, Sign } from './../map.service';
 import { SignService } from './../sign.service';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'sign-picker',
@@ -20,7 +21,8 @@ export class SignPickerComponent implements OnInit {
 	constructor(
 		private formBuilder: FormBuilder,
 		private signService: SignService,
-		private mapService: MapService
+		private mapService: MapService,
+		private router: Router
 	) {
 		mapService.signPickerRequested$.subscribe(data => {
 			// data should be "true"
@@ -34,7 +36,7 @@ export class SignPickerComponent implements OnInit {
 
 	ngOnInit() {
 		// Start off hidden
-		this.hidden = true;
+		// this.hidden = true;
 
 		// Start off with a view of all signs.
 		this.signService.updateSigns('');
@@ -54,11 +56,18 @@ export class SignPickerComponent implements OnInit {
 	}
 
 	onAddClick(signObj) {
+		console.log("onAddCLick");
 		let sign = new Sign;
 		sign.signObj = signObj; //this.signs[id];
+		console.log("callingAddPickedSign");
 		this.mapService.addPickedSign(sign);
 
+
+
 		// We can now hide the signpicker
-		this.hidden = true;
+		// this.hidden = true;
+
+		//After adding the sign, we simply return to the main page
+		this.router.navigateByUrl('/');
 	}
 }

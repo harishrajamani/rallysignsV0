@@ -86,7 +86,7 @@ export class MapAreaComponent implements OnInit {
     this.ctx.beginPath();
     for (const [i, sign] of this.signs.entries()) {
       if (i==0) {
-        this.ctx.moveTo(sign.loc.canvasX, sign.loc.canvasY);  
+        this.ctx.moveTo(sign.loc.canvasX, sign.loc.canvasY);
       } else {
         this.ctx.lineTo(sign.loc.canvasX, sign.loc.canvasY);
         this.ctx.stroke();
@@ -110,7 +110,7 @@ export class MapAreaComponent implements OnInit {
 
 
     // TODO(als83): Add a router link here
-    //this.router.navigateByUrl('/signpicker');
+    this.router.navigateByUrl('/signspicker');
   }
 
   // What to do when a sign location and an Edit action have been registered from the user.
@@ -121,6 +121,9 @@ export class MapAreaComponent implements OnInit {
     // The button group's job is done.
     this.hideActionButtonGroup();
     this.redrawLines();
+
+    // TODO(als83): Add a router link here
+    this.router.navigateByUrl('/signspicker');
   }
 
   // What to do when a sign location and a Delete action have been registered from the user.

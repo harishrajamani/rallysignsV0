@@ -1,38 +1,44 @@
-<div [hidden]="isHidden()" class="sign-picker">
+<div class="signpickercontainer">
     <h4 align="center">add new sign</h4>
     <form [formGroup]='searchForm'>
         <label for="query"><strong>Filter&nbsp;</strong> </label>
-        <input id="query" type="text" formControlName="query">
+        <div class="searchfield">
+            <input id="query" type="text" formControlName="query">
+        </div>
     </form>
 
-    <div *ngFor="let sign of signs">
-        <div class="card" *ngIf="sign" style="margin-top: 20px; width: 14rem;border-radius: 0.5rem">
-            <div class="card-header">
-                <span  class="align-middle">
-                    #{{ sign.id }} <strong>{{sign.name }}</strong>
-                </span>
-                <span class="sign-add-btn">
-                    <button (click)="onAddClick(sign)" class="btn btn-primary" style="font-size:smaller;">Add</button>
-                </span>
-            </div>
+    <div class="row">
+        <div *ngFor="let sign of signs">
+            <div class="col-sm-4">
+                <div class="card" *ngIf="sign" style="margin-top: 10px; width: 14rem;border-radius: 0.5rem">
+                    <div class="card-header">
+                        <span  class="align-middle">
+                            #{{ sign.id }} <strong>{{sign.name }}</strong>
+                        </span>
+                        <span class="sign-add-btn">
+                            <button (click)="onAddClick(sign)" class="btn btn-primary" style="font-size:smaller;">Add</button>
+                        </span>
+                    </div>
 
-            <div align="center" class="card-img-top" style="margin-bottom: 7px;">
-                <img [src]="sign.image.large" [width]="200" [alt]="'Sign ' + sign.id + ' image'">
+                    <div align="center" class="card-img-top" style="margin-bottom: 7px;">
+                        <img [src]="sign.image.large" [width]="200" [alt]="'Sign ' + sign.id + ' image'">
+                    </div>
+                    <div class="card-text" [innerHTML]="sign.description"></div>
+                    <div class="card-footer text-muted">
+                        <!-- <p>CAN APPEAR IN:
+                            <span [style.visibility]="sign.constraints.beginner ? 'visible': 'hidden'"> <strong> RN
+                                </strong>
+                            </span>
+                            <span [style.visibility]="sign.constraints.intermediate ? 'visible': 'hidden'"> <strong> RI
+                                </strong> </span>
+                            <span [style.visibility]="sign.constraints.advanced ? 'visible': 'hidden'"> <strong> RA
+                                </strong>
+                            </span>
+                        </p> -->
+                    </div>
+                    <br>
+                </div>
             </div>
-            <div class="card-text" [innerHTML]="sign.description"></div>
-            <div class="card-footer text-muted">
-                <p>CAN APPEAR IN:
-                    <span [style.visibility]="sign.constraints.beginner ? 'visible': 'hidden'"> <strong> RN
-                        </strong>
-                    </span>
-                    <span [style.visibility]="sign.constraints.intermediate ? 'visible': 'hidden'"> <strong> RI
-                        </strong> </span>
-                    <span [style.visibility]="sign.constraints.advanced ? 'visible': 'hidden'"> <strong> RA
-                        </strong>
-                    </span>
-                </p>
-            </div>
-            <br>
         </div>
     </div>
 </div>

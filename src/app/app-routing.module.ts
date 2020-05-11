@@ -5,12 +5,13 @@ import { MapMakerComponent } from './map-maker/map-maker.component';
 
 
 const routes: Routes = [
-  {path: "", component: MapMakerComponent},
-  {path: "signpicker", component: SignPickerComponent}
+  {path: '', component: MapMakerComponent},
+  {path: 'signspicker', component: SignPickerComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

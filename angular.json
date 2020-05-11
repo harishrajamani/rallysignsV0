@@ -131,6 +131,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "rallymap"
+    }
+  },
+  "defaultProject": "rallymap",
+  "cli": {
+    "analytics": false
+  }
 }
