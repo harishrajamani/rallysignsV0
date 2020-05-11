@@ -47,7 +47,11 @@ export class MapAreaComponent implements OnInit {
     // Start without any Action menus.
     this.hideActionButtonGroup();
     // Refresh state of all the map signs
+  }
+
+  ngAfterViewInit(): void {
     this.signs = this.mapService.getMapSigns();
+
   }
 
   // When the canvas is clicked, we register a new map request at the clicked location.
@@ -63,8 +67,36 @@ export class MapAreaComponent implements OnInit {
     console.log("onCanvasClick: " + x + "," + y + "," + offsetX + "," + offsetY + "," + pageX + "," + pageY);
 
     // Register click event with MapService.
-    this.mapService.registerClick({ x: pageX, y: pageY });
+    this.mapService.registerClick({ x: pageX, y: pageY, canvasX: offsetX, canvasY: offsetY });
     this.displayActionButtonGroup(pageX, pageY, [MapAction.Add]);
+
+    this.redrawLines(offsetX, offsetY);
+  }
+
+  // TODO(harishr): This is not doing anything.
+  private listenForMapSignChanges() {
+    this.myMapSigns.changes.subscribe(this.redrawLines);
+  }
+
+  // Redraws lines between signs in order.
+  // If provided, the canvasX, canvasY coordinates indicate a new final position where a sign has not yet been placed.
+  redrawLines(canvasX?: number, canvasY?: number) {
+    // Clear canvas.
+    this.ctx.clearRect(0, 0, this.myCanvas.nativeElement.width, this.myCanvas.nativeElement.height);
+    this.ctx.beginPath();
+    for (const [i, sign] of this.signs.entries()) {
+      if (i==0) {
+        this.ctx.moveTo(sign.loc.canvasX, sign.loc.canvasY);  
+      } else {
+        this.ctx.lineTo(sign.loc.canvasX, sign.loc.canvasY);
+        this.ctx.stroke();
+      }
+    };
+    if (canvasX && canvasY && this.signs.length > 0) {
+      // Finally, draw a line to the latex canvas coordinates (this sign hasn't been made yet).
+      this.ctx.lineTo(canvasX, canvasY);
+      this.ctx.stroke();
+    }
   }
 
   // What to do when a coordinate location and an Add action have been registered from the user.
@@ -74,6 +106,8 @@ export class MapAreaComponent implements OnInit {
     this.mapService.registerAction(MapAction.Add);
     // The button group's job is done.
     this.hideActionButtonGroup();
+    this.redrawLines();
+
 
     // TODO(als83): Add a router link here
     //this.router.navigateByUrl('/signpicker');
@@ -86,6 +120,7 @@ export class MapAreaComponent implements OnInit {
     this.mapService.registerAction(MapAction.Edit);
     // The button group's job is done.
     this.hideActionButtonGroup();
+    this.redrawLines();
   }
 
   // What to do when a sign location and a Delete action have been registered from the user.
@@ -95,6 +130,7 @@ export class MapAreaComponent implements OnInit {
     this.mapService.registerAction(MapAction.Delete);
     // The button group's job is done.
     this.hideActionButtonGroup();
+    this.redrawLines();
   }
 
   getMapSignWidth() {

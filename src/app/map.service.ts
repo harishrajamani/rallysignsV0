@@ -18,6 +18,9 @@ export class Sign {
 export class MapLocation {
   x: number;
   y: number;
+  // Optional fields for storing the location relative to the canvas.
+  canvasX?: number;
+  canvasY?: number;
 };
 
 export enum MapAction {
@@ -107,8 +110,8 @@ export class MapService {
 
         // We aren't done here. The stored mapIndexes in each Sign object are now out of whack.
         // So edit the mapIndexes in mapSigns to reflect the new truth.
-        this.mapSigns.forEach(function (item, i) {
-          (item as Sign).mapIndex = i;
+        this.mapSigns.forEach(function (sign, i) {
+          sign.mapIndex = i;
         });
         break;
     }
