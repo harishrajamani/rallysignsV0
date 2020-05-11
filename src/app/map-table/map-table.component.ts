@@ -24,4 +24,20 @@ export class MapTableComponent implements OnInit {
     this.signs = this.mapService.getMapSigns();
   }
 
+  onUpArrowClick(idx) {
+    if (idx == 0) {
+      console.log("Can't move element up");
+      return;
+    }
+    this.mapService.swapSignPositions(idx, idx-1);
+  }
+
+  onDownArrowClick(idx) {
+    if (idx == this.signs.length - 1) {
+      console.log("Can't move element down");
+      return;
+    }
+    this.mapService.swapSignPositions(idx, idx+1);
+  }
+
 }

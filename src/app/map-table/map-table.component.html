@@ -6,15 +6,27 @@
             <th scope="col">Sign#</th>
             <th scope="col">Name</th>
             <th scope="col">Image</th>
+            <th scope="col">Move up</th>
+            <th scope="col">Move down</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let sign of signs">
+        <tr *ngFor="let sign of signs; let i=index;">
             <th scope="row">{{ sign.mapIndex + 1}}</th>
             <td> {{ sign.signObj["id"] }} </td>
             <td> {{ sign.signObj["name"] }} </td>
             <td class="table-sign-td">
                 <app-map-sign [sign]="sign" [useMapLocation]="false"></app-map-sign>
+            </td>
+            <td>
+                <button type="button" class="btn btn-default btn-sm" (click)="onUpArrowClick(i)">
+                    <span class="glyphicon glyphicon-arrow-up"></span> Up
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-default btn-sm" (click)="onDownArrowClick(i)">
+                    <span class="glyphicon glyphicon-arrow-down"></span> Down
+                </button>
             </td>
         </tr>
     </tbody>

@@ -11,7 +11,7 @@ export class Sign {
 
   // Coordinates on map
   loc: MapLocation;
-  
+
 }
 
 // A map can be clicked at a granular point or on a sign.
@@ -69,7 +69,7 @@ export class MapService {
   }
 
   // The first instance of a request begins with a clicked location.
-  registerClick(mapLocation: MapLocation, sign?: Sign) {    
+  registerClick(mapLocation: MapLocation, sign?: Sign) {
     this.request = new MapRequest;
     this.request.loc = mapLocation;
     // If the click was on a sign, then record that into the request state as oldSign.
@@ -91,7 +91,7 @@ export class MapService {
       console.error("registerAction called before registerClick!");
     }
     // Deal with action
-    switch(mapAction) {
+    switch (mapAction) {
       case MapAction.Add:
         // Publish sign picker request
         this.signPickerRequestedSource.next(true);
@@ -107,7 +107,7 @@ export class MapService {
 
         // We aren't done here. The stored mapIndexes in each Sign object are now out of whack.
         // So edit the mapIndexes in mapSigns to reflect the new truth.
-        this.mapSigns.forEach(function(item, i) {
+        this.mapSigns.forEach(function (item, i) {
           (item as Sign).mapIndex = i;
         });
         break;
@@ -119,7 +119,7 @@ export class MapService {
   // mapSigns list.
   addPickedSign(newSign: Sign) {
     console.log("MapService.addPickedSign");
-  
+
     // Add sign to model (maybe replacing old sign)
     if (this.request.action === MapAction.Edit) {
       // Clobber the old sign by putting it in the same index.
@@ -138,8 +138,21 @@ export class MapService {
     // Update finalized MapRequest and log to console (just for debug).
     this.request.newSign = newSign;
     console.log("Finalized MapRequest: " + JSON.stringify(this.request));
-  
+
     // Clear MapRequest
-    delete(this.request);
+    delete (this.request);
+  }
+
+  swapSignPositions(i: number, j: number) {
+    [i, j].forEach(val => {
+      if (val < 0 || val >= this.mapSigns.length) {
+        console.log("swapSignPositions received illegal inputs:" + i + "," + j);
+        return;
+      }
+    });
+
+    [this.mapSigns[i], this.mapSigns[j]] = [this.mapSigns[j], this.mapSigns[i]];
+    // Not done yet.. update the mapIndexes in the individual mapSigns as well.
+    [this.mapSigns[i].mapIndex, this.mapSigns[j].mapIndex] = [this.mapSigns[j].mapIndex, this.mapSigns[i].mapIndex];
   }
 }

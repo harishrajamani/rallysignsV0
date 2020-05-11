@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MapAreaComponent } from './map-area/map-area.component';
 import { MapSignComponent } from './map-sign/map-sign.component';
 import { MapTableComponent } from './map-table/map-table.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MapTableComponent } from './map-table/map-table.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -76,7 +76,7 @@ export class MapAreaComponent implements OnInit {
     this.hideActionButtonGroup();
 
     // TODO(als83): Add a router link here
-    this.router.navigateByUrl('/signpicker');
+    //this.router.navigateByUrl('/signpicker');
   }
 
   // What to do when a sign location and an Edit action have been registered from the user.
