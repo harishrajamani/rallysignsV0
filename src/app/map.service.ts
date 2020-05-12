@@ -110,10 +110,11 @@ export class MapService {
       case MapAction.Delete:
         // Delete the sign from mapSigns.
         this.mapSigns.splice(this.request.oldSign.mapIndex, 1);
+
+        // This is the end of the delete request cycle.
+        this.finishMapRequest();
         break;
     }
-    // Any new action can result in a new ordering and orientation of mapSigns.
-    this.recalibrateSigns();
 
   }
 
@@ -128,9 +129,10 @@ export class MapService {
       // Clobber the old sign by putting it in the same index.
       newSign.mapIndex = this.request.oldSign.mapIndex;
       this.mapSigns[newSign.mapIndex] = newSign;
-      // When a sign is clicked, the "clicked location" of the new sign should be
-      // the position of the old sign itself. 
-      newSign.loc = this.request.loc;
+      // When a sign is clicked, the "clicked location" and rotation of the new sign should be
+      // derived from the old sign.
+      newSign.loc = this.request.oldSign.loc;
+      newSign.rotation = this.request.oldSign.rotation;
     } else {  // MapAction.Add
       newSign.mapIndex = this.mapSigns.length;
       this.mapSigns.push(newSign);
@@ -138,12 +140,12 @@ export class MapService {
       // are used to position the new sign.
       newSign.loc = this.request.loc;
     }
-    // Update finalized MapRequest and log to console (just for debug).
-    this.request.newSign = newSign;
-    console.log("Finalized MapRequest: " + JSON.stringify(this.request));
 
-    // Clear MapRequest
-    delete (this.request);
+    // Update finalized MapRequest (just for console debug consistency).
+    this.request.newSign = newSign;
+
+    // This is the end of the add/edit request cycle.
+    this.finishMapRequest();
   }
 
   swapSignPositions(i: number, j: number) {
@@ -181,5 +183,22 @@ export class MapService {
       prevX = sign.loc.canvasX;
       prevY = -sign.loc.canvasY;
     });
+  }
+
+  // Contains actions that should run at the end of a request cycle.
+  finishMapRequest() {
+    // Recalibrate signs since changes to this.mapSigns are now finalized.
+    this.recalibrateSigns();
+
+    // Just some logging
+    console.log("Finalized MapRequest: " + JSON.stringify(this.request));
+    console.log("Action:" + JSON.stringify(this.request.action));
+    console.log("Loc" + JSON.stringify(this.request.loc));
+    console.log("NewSign:" + JSON.stringify(this.request.newSign));
+    console.log("OldSign:" + JSON.stringify(this.request.oldSign));
+  
+    // Delete request
+    delete (this.request);
+
   }
 }
