@@ -57,7 +57,6 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
   
     // When we delete or reorder signs, we need to redraw.
     this.myMapSigns.changes.subscribe(data => {
-      console.log('myMapSigns changed!');
       this.redrawLines();
     });
   }
@@ -87,15 +86,18 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
     this.ctx.clearRect(0, 0, this.myCanvas.nativeElement.width, this.myCanvas.nativeElement.height);
     this.ctx.beginPath();
     for (const [i, sign] of this.signs.entries()) {
+      // When drawing lines, use the centre of the sign as the reference point.
+      let x = sign.loc.canvasX + this.getMapSignWidth() / 2;
+      let y = sign.loc.canvasY + this.getMapSignHeight() / 2;
       if (i==0) {
-        this.ctx.moveTo(sign.loc.canvasX, sign.loc.canvasY);
+        this.ctx.moveTo(x, y);
       } else {
-        this.ctx.lineTo(sign.loc.canvasX, sign.loc.canvasY);
+        this.ctx.lineTo(x, y);
         this.ctx.stroke();
       }
     };
     if (canvasX && canvasY && this.signs.length > 0) {
-      // Finally, draw a line to the latex canvas coordinates (this sign hasn't been made yet).
+      // Finally, draw a line to the latest canvas coordinates (this sign hasn't been added yet).
       this.ctx.lineTo(canvasX, canvasY);
       this.ctx.stroke();
     }
@@ -151,7 +153,6 @@ export class MapAreaComponent implements OnInit, AfterViewInit {
 
   onSignClick(event) {
     let sign = (event as Sign);
-    console.log(`onSignClick: ${sign.loc.x}, ${sign.loc.y}, ${this.getMapSignWidth()}, ${this.getMapSignHeight()}`);
     // Register click event with MapService.
     this.mapService.registerClick({ x: sign.loc.x, y: sign.loc.y }, sign);
     this.displayActionButtonGroup(sign.loc.x + this.getMapSignWidth(), sign.loc.y + this.getMapSignHeight(), [MapAction.Edit, MapAction.Delete]);
