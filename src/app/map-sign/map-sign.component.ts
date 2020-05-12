@@ -42,12 +42,11 @@ export class MapSignComponent implements OnInit {
     return this.sign.signObj["image"]["small"];
   }
 
-  getWidth() {
-    return
+  getRotationAngle() {
+    return this.sign.rotation;
   }
 
   onClick() {
-    console.log("Sign clicked: " + JSON.stringify(this.sign));
     this.clickedSign.emit(this.sign);
   }
 }

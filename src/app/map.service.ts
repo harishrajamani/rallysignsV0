@@ -12,6 +12,9 @@ export class Sign {
   // Coordinates on map
   loc: MapLocation;
 
+  // Rotation angle in degrees.
+  rotation: number;
+
 }
 
 // A map can be clicked at a granular point or on a sign.
@@ -107,14 +110,11 @@ export class MapService {
       case MapAction.Delete:
         // Delete the sign from mapSigns.
         this.mapSigns.splice(this.request.oldSign.mapIndex, 1);
-
-        // We aren't done here. The stored mapIndexes in each Sign object are now out of whack.
-        // So edit the mapIndexes in mapSigns to reflect the new truth.
-        this.mapSigns.forEach(function (sign, i) {
-          sign.mapIndex = i;
-        });
         break;
     }
+    // Any new action can result in a new ordering and orientation of mapSigns.
+    this.recalibrateSigns();
+
   }
 
   // This call is made by SignPicker after a sign has been picked. This can only happen in an Add/Edit scenario.
@@ -155,7 +155,31 @@ export class MapService {
     });
 
     [this.mapSigns[i], this.mapSigns[j]] = [this.mapSigns[j], this.mapSigns[i]];
-    // Not done yet.. update the mapIndexes in the individual mapSigns as well.
-    [this.mapSigns[i].mapIndex, this.mapSigns[j].mapIndex] = [this.mapSigns[j].mapIndex, this.mapSigns[i].mapIndex];
+    // Now positions and orientations have changed. Recalibrate signs.
+    this.recalibrateSigns();
+  }
+
+  recalibrateSigns() {
+    let prevX = null;
+    let prevY = null;
+    this.mapSigns.forEach(function (sign, i) {
+      // Recalibrate index
+      sign.mapIndex = i;
+
+      // Recalibrate angle (for all but the first sign).
+      if (prevX && prevY) {
+        let currX = sign.loc.canvasX;
+        // Y negative because coordinate system has negative Y axis on canvas.
+        let currY = -sign.loc.canvasY;
+
+        // Angle in radians
+        sign.rotation = Math.atan2(currY - prevY, currX - prevX);
+        // Angle in degrees
+        sign.rotation *= 180 / Math.PI;
+        sign.rotation = 90 - sign.rotation;
+      }
+      prevX = sign.loc.canvasX;
+      prevY = -sign.loc.canvasY;
+    });
   }
 }

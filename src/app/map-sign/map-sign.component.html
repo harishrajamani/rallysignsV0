@@ -3,6 +3,7 @@
     [style.position]="useMapLocation? 'absolute': 'unset'"
     [style.width.px]="useMapLocation? '100': '50'"
     [style.left.px]="useMapLocation? getX(): null"
-    [style.top.px]="useMapLocation? getY(): null">
+    [style.top.px]="useMapLocation? getY(): null"
+    [style.transform]="'rotate('+ getRotationAngle() + 'deg)'">
     <img [src]="getImg()" [style.width.%]="100">
 </div>
